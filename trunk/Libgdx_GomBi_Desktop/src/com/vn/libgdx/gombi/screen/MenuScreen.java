@@ -1,19 +1,30 @@
 package com.vn.libgdx.gombi.screen;
 
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.vn.libgdx.gombi.gamelogic.GameControl;
 
 public class MenuScreen extends BaseScreen{
 
+	private TextureRegion region;
+	
 	@Override
 	public void show() {
 		super.show();
+		region = new TextureRegion(GameControl.getAtlas().findRegion("hinh1/badlogic"));
+		Image i = new Image(region);
+		stage.addActor(i);
+	}
+	
+	@Override
+	public void render(float arg0) {
+		super.render(arg0);
+		sb.begin();
+		//sb.draw(region, 500,400);
+		sb.end();
 	}
 
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-		super.dispose();
-	}
+	
 
 	@Override
 	public void hide() {
@@ -27,11 +38,7 @@ public class MenuScreen extends BaseScreen{
 		super.pause();
 	}
 
-	@Override
-	public void render(float arg0) {
-		// TODO Auto-generated method stub
-		super.render(arg0);
-	}
+
 
 	@Override
 	public void resize(int arg0, int arg1) {
@@ -43,6 +50,12 @@ public class MenuScreen extends BaseScreen{
 	public void resume() {
 		// TODO Auto-generated method stub
 		super.resume();
+	}
+	
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		super.dispose();
 	}
 	
 }

@@ -13,5 +13,6 @@ public class MyTTPacker {
 		tt.maxWidth = 512;
 		tt.minWidth = 512;
 		TexturePacker2.process(tt, "MyData/", "MyDataPacker/", "FileMoTa.txt");
+		TexturePacker2.process(tt, "MySkin/", "MySkinPacker/", "uiskin.atlas");
 	}
 }
