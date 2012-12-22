@@ -7,16 +7,34 @@ public class ManagerScreen {
 	public static int SCREEN_MENU = 0;
 	public static int SCREEN_PLAY = 1;
 	
+	private Screen nowScreen;
+	
 	public ManagerScreen() {
 	}
 	
-	public Screen getScreen(int select){
+	public Screen getScreen(){
+		if (nowScreen == null)
+			nowScreen = new MenuScreen();
+		nowScreen.show();
+		return nowScreen;
+	}
+	
+	public Screen createScreen(int select){
 		switch (select) {
 		case 0:
-			return new MenuScreen();
+			clearNowScreen();
+			nowScreen = new MenuScreen();
+			return nowScreen;
 		case 1:
-			return new PlayScreen();
+			clearNowScreen();
+			nowScreen = new PlayScreen();
+			return nowScreen;
 		}
 		return new MenuScreen();
+	}
+	
+	private void clearNowScreen(){
+		if (nowScreen != null)
+			nowScreen.dispose();
 	}
 }
