@@ -28,7 +28,7 @@ public class BaseScreen implements Screen{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		sb.setProjectionMatrix(camera.combined);
 		camera.update();
-		stage.act();
+		stage.act(Gdx.graphics.getDeltaTime());
 		stage.draw();
 	}
 	
@@ -48,7 +48,7 @@ public class BaseScreen implements Screen{
 
 	@Override
 	public void resize(int arg0, int arg1) {
-		
+		stage.setViewport(arg0, arg1, true);
 	}
 
 	@Override
