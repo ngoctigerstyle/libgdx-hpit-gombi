@@ -37,12 +37,12 @@ public class MyGdxGame implements ApplicationListener{
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
+		Gdx.gl.glClearColor(0.5f, 0.6f, 0.5f, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		sprite.draw(batch);
+		//sprite.draw(batch);
 		batch.end();
 	}
 
