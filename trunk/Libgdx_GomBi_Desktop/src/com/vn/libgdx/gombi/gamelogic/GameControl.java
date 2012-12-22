@@ -1,6 +1,7 @@
 package com.vn.libgdx.gombi.gamelogic;
 
 import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -9,14 +10,18 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.vn.libgdx.gombi.screen.ManagerScreen;
+import com.vn.libgdx.gombi.screen.MenuScreen;
 
-public class MyGdxGame implements ApplicationListener{
+public class GameControl extends Game{
+	private ManagerScreen managerScreen;
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	private Texture texture;
 	private Sprite sprite;
 	@Override
 	public void create() {
+		managerScreen = new ManagerScreen();
 		//example load 1 tam hinh.
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
@@ -31,6 +36,7 @@ public class MyGdxGame implements ApplicationListener{
 		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
 		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
 		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
+		this.setScreen(new MenuScreen());
 	}
 
 
