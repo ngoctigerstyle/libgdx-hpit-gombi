@@ -15,73 +15,10 @@ FileMoTa2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-hinh2/popo01
-  rotate: false
-  xy: 1, 53
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo02
+menu/ball-text
   rotate: false
   xy: 1, 1
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo03
-  rotate: false
-  xy: 53, 53
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo04
-  rotate: false
-  xy: 53, 1
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo05
-  rotate: false
-  xy: 105, 53
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo06
-  rotate: false
-  xy: 105, 1
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo07
-  rotate: false
-  xy: 157, 53
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo08
-  rotate: false
-  xy: 157, 1
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo09
-  rotate: false
-  xy: 209, 53
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-hinh2/popo10
-  rotate: false
-  xy: 209, 1
-  size: 50, 50
-  orig: 50, 50
+  size: 370, 155
+  orig: 370, 155
   offset: 0, 0
   index: -1
