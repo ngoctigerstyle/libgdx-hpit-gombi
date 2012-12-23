@@ -30,9 +30,14 @@ public class GroupBi extends Group{
 		gBiDo = new Group();
 		this.addActor(gBiDo);
 		
-		khoiTaoBi(this.BI_XAM);
-		khoiTaoBi(this.BI_XANH);
-		khoiTaoBi(this.BI_DO);
+		khoiTaoBi(BI_VANG);
+		khoiTaoBi(BI_XANH);
+		khoiTaoBi(BI_DO);
+		khoiTaoBi(BI_DO);
+		khoiTaoBi(BI_DO);
+		khoiTaoBi(BI_DO);
+		khoiTaoBi(BI_DO);
+		khoiTaoBi(BI_XAM);
 	}
 	
 	private static int BI_XAM = 0;

@@ -10,7 +10,7 @@ public class BiVang extends BiBase{
 		super();
 		image = new Image(GameControl.getAtlas().findRegion("play/bi/vang"));
 		this.addActor(image);
-		
+		randomViTri();
 		setXY_Max();
 	}
 }

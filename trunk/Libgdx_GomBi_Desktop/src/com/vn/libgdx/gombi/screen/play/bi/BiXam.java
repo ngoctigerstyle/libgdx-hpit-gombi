@@ -1,12 +1,10 @@
 package com.vn.libgdx.gombi.screen.play.bi;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.libgdx.gombi.gamelogic.GameControl;
-import com.vn.libgdx.gombi.screen.PlayScreen;
 import com.vn.libgdx.gombi.screen.play.GroupBi;
 
 public class BiXam extends BiBase{
@@ -57,13 +55,13 @@ public class BiXam extends BiBase{
 		float xTemp = x;
 		if (xTemp < 0)
 			xTemp = 0;
-		if (xTemp > GroupBi.WIDTH)
-			xTemp = GroupBi.WIDTH;
+		if (xTemp > x_max)
+			xTemp = x_max;
 		float yTemp = y;
 		if (yTemp < 0)
 			yTemp = 0;
-		if (yTemp > GroupBi.HEIGH)
-			yTemp = GroupBi.HEIGH;
+		if (yTemp > y_max)
+			yTemp = y_max;
 		viTriCuoi.set(xTemp, yTemp);
 		//Gdx.app.log(String.valueOf(viTriCuoi.x), String.valueOf(viTriCuoi.y));
 	}
