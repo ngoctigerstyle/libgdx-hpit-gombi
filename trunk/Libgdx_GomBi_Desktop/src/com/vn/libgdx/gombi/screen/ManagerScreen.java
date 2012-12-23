@@ -13,9 +13,10 @@ public class ManagerScreen {
 	}
 	
 	public Screen getScreen(){
-		if (nowScreen == null)
+		if (nowScreen == null){
 			nowScreen = new MenuScreen();
-//		nowScreen.show();
+			nowScreen.show();
+		}
 		return nowScreen;
 	}
 	
@@ -24,12 +25,12 @@ public class ManagerScreen {
 		case 0:
 			clearNowScreen();
 			nowScreen = new MenuScreen();
-//			nowScreen.show();
+			nowScreen.show();
 			return nowScreen;
 		case 1:
 			clearNowScreen();
 			nowScreen = new PlayScreen();
-//			nowScreen.show();
+			nowScreen.show();
 			return nowScreen;
 		}
 		return new MenuScreen();

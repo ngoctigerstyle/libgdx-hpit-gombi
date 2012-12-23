@@ -26,7 +26,8 @@ public class GameControl extends Game{
 
 	@Override
 	public void render() {
-		managerScreen.getScreen().render(Gdx.graphics.getDeltaTime());
+		if (managerScreen.getScreen()!= null)
+			managerScreen.getScreen().render(Gdx.graphics.getDeltaTime());
 	}
 
 	@Override
