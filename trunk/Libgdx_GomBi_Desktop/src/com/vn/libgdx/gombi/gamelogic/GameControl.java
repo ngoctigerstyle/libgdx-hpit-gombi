@@ -20,7 +20,7 @@ public class GameControl extends Game{
 		atlas = new TextureAtlas(Gdx.files.internal("MyDataPacker/FileMoTa.txt"));
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
-		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
+		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_PLAY));
 	}
 
 

@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.vn.libgdx.gombi.gamelogic.GameControl;
 
 public class BaseScreen implements Screen{
-	private OrthographicCamera camera;
+	public OrthographicCamera camera;
 	protected SpriteBatch sb;
 	protected Stage stage;
 	
@@ -19,7 +19,7 @@ public class BaseScreen implements Screen{
 		sb = new SpriteBatch();
 		stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 		Gdx.input.setInputProcessor(stage);
-		camera = new OrthographicCamera();
+		camera = (OrthographicCamera) stage.getCamera();
 	}
 	
 	@Override
