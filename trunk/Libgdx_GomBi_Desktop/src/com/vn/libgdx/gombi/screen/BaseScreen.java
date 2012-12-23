@@ -17,7 +17,7 @@ public class BaseScreen implements Screen{
 	@Override
 	public void show() {
 		sb = new SpriteBatch();
-		stage = new Stage(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+		stage = new Stage(800, 480, true);
 		Gdx.input.setInputProcessor(stage);
 		camera = (OrthographicCamera) stage.getCamera();
 	}
@@ -32,8 +32,6 @@ public class BaseScreen implements Screen{
 		stage.draw();
 	}
 	
-
-
 	@Override
 	public void hide() {
 		
