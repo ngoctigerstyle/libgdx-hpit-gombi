@@ -1,31 +1,22 @@
 package com.vn.libgdx.gombi.screen;
 
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.vn.libgdx.gombi.gamelogic.GameControl;
+import com.vn.libgdx.gombi.screen.play.KhungGame;
+import com.vn.libgdx.gombi.screen.play.LeftTaskBar;
 
 public class PlayScreen extends BaseScreen{
 
-	private Label label;
-	private Image imgKhung;
+	private KhungGame khungGame;
+	private LeftTaskBar leftTaskBar;
 	
 	@Override
 	public void show() {
 		super.show();
-		label = new Label("play screen", GameControl.getMySkin(), "default");
-		stage.addActor(label);
 		
-		NinePatch np = new NinePatch(GameControl.getAtlas().findRegion("play/khung"),180,50,70,50);
+		khungGame = new KhungGame();
+		stage.addActor(khungGame);
 		
-		imgKhung = new Image(np);
-		imgKhung.setX(0);
-		imgKhung.setY(0);
-		imgKhung.setWidth(800);
-		imgKhung.setHeight(480);
-		stage.addActor(imgKhung);
-		
+		leftTaskBar = new LeftTaskBar();
+		stage.addActor(leftTaskBar);
 	}
 
 	@Override
