@@ -33,6 +33,7 @@ public class MenuScreen extends BaseScreen{
 //		move.setY(100);
 //		move.setDuration(2f);
 //		tB1.addAction(move);
+		//GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
 		
 	}
 	

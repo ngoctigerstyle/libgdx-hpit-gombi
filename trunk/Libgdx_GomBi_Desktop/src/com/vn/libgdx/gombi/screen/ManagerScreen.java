@@ -24,10 +24,12 @@ public class ManagerScreen {
 		case 0:
 			clearNowScreen();
 			nowScreen = new MenuScreen();
+			nowScreen.show();
 			return nowScreen;
 		case 1:
 			clearNowScreen();
 			nowScreen = new PlayScreen();
+			nowScreen.show();
 			return nowScreen;
 		}
 		return new MenuScreen();

@@ -1,13 +1,17 @@
 package com.vn.libgdx.gombi.screen;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.vn.libgdx.gombi.gamelogic.GameControl;
 
 public class PlayScreen extends BaseScreen{
 
+	private Label label;
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 		super.show();
+		label = new Label("play screen", GameControl.getMySkin(), "default");
+		stage.addActor(label);
 	}
 
 	@Override

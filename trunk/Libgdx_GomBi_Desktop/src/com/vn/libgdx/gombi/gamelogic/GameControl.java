@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.vn.libgdx.gombi.screen.ManagerScreen;
 
 public class GameControl extends Game{
-	private ManagerScreen managerScreen;
+	private static ManagerScreen managerScreen;
 	private static MySkin mySkin;
 	private static TextureAtlas atlas;
 	
@@ -48,5 +48,9 @@ public class GameControl extends Game{
 	
 	public static MySkin getMySkin(){
 		return mySkin;
+	}
+	
+	public static ManagerScreen getManagerScreen(){
+		return managerScreen;
 	}
 }
