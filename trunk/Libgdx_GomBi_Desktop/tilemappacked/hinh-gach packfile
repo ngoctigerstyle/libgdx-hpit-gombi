@@ -1,9 +1,9 @@
 
-gach1.png
+hinh-gach1.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-gach
+hinh-gach
   rotate: false
   xy: 2, 2
   size: 113, 113

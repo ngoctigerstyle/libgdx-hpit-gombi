@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><map height="4" orientation="orthogonal" tileheight="113" tilewidth="113" version="1.0" width="7"><properties><property name="blended tiles" value=""/></properties>
  <tileset firstgid="1" name="gach" tileheight="113" tilewidth="113">
-  <image height="113" source="gach.png" width="113"/>
+  <image height="113" source="hinh-gach.png" width="113"/>
  </tileset>
  <layer height="4" name="Tile Layer 1" width="7">
   <data compression="zlib" encoding="base64">
