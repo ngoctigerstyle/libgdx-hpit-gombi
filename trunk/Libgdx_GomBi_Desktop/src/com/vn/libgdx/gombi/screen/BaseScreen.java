@@ -28,7 +28,7 @@ public class BaseScreen implements Screen{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		sb.setProjectionMatrix(camera.combined);
 		camera.update();
-		stage.act(Gdx.graphics.getDeltaTime());
+		stage.act();
 		stage.draw();
 	}
 	

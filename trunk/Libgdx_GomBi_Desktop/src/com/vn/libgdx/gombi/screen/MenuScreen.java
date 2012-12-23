@@ -21,18 +21,28 @@ public class MenuScreen extends BaseScreen{
 		menuBall.setX((stage.getWidth()-menuBall.getWidth())/2);
 		menuBall.setY(200);
 		
-		TextButton tB1 = new TextButton("new game", GameControl.getMySkin(), "default");
+		TextButton tB1 = new TextButton("new game", GameControl.getMySkin());
 		tB1.setX(100);
 		tB1.setY(100);
 		tB1.setWidth(200);
 		tB1.setHeight(70);
 		stage.addActor(tB1);
 		
-//		MoveToAction move = new MoveToAction();
-//		move.setX(500);
-//		move.setY(100);
-//		move.setDuration(2f);
-//		tB1.addAction(move);
+		MoveToAction move = new MoveToAction();
+		move.setX(400);
+		move.setY(100);
+		move.setDuration(2f);
+		tB1.addAction(move);
+		
+//		tB1.addListener(new ClickListener(){
+//
+//			@Override
+//			public boolean touchDown(InputEvent event, float x, float y,
+//					int pointer, int button) {
+//				Gdx.app.log("sdf", "arg1");
+//				return super.touchDown(event, x, y, pointer, button);
+//			}
+//		});
 		//GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
 		
 	}
