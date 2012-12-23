@@ -1,5 +1,7 @@
 package com.vn.libgdx.gombi.screen;
 
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.vn.libgdx.gombi.screen.play.GroupBi;
 import com.vn.libgdx.gombi.screen.play.KhungGame;
 import com.vn.libgdx.gombi.screen.play.LeftTaskBar;
 import com.vn.libgdx.gombi.screen.play.NenGach;
@@ -9,21 +11,25 @@ public class PlayScreen extends BaseScreen{
 	private NenGach nenGach;
 	private KhungGame khungGame;
 	private LeftTaskBar leftTaskBar;
+	private GroupBi groupBi;
 	
 	@Override
 	public void show() {
 		super.show();
 		
-		
+		nenGach = new NenGach(this);
+		stage.addActor(nenGach);
 		
 		khungGame = new KhungGame();
 		stage.addActor(khungGame);
 		
-		nenGach = new NenGach(this);
-		stage.addActor(nenGach);
-		
 		leftTaskBar = new LeftTaskBar();
 		stage.addActor(leftTaskBar);
+		
+		groupBi = new GroupBi();
+		stage.addActor(groupBi);
+		
+		
 	}
 
 	@Override
