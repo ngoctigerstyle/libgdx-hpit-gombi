@@ -1,8 +1,7 @@
 package com.vn.libgdx.gombi.screen;
 
-import com.badlogic.gdx.Input.Keys;
-import com.vn.libgdx.gombi.helper.Input;
 import com.vn.libgdx.gombi.screen.play.BangKetQua;
+import com.vn.libgdx.gombi.screen.play.BottomTaskBar;
 import com.vn.libgdx.gombi.screen.play.GroupBi;
 import com.vn.libgdx.gombi.screen.play.KhungGame;
 import com.vn.libgdx.gombi.screen.play.LeftTaskBar;
@@ -15,6 +14,7 @@ public class PlayScreen extends BaseScreen{
 	private LeftTaskBar leftTaskBar;
 	private GroupBi groupBi;
 	private BangKetQua bangKetQua;
+	private BottomTaskBar bottomTaskBar;
 	
 	@Override
 	public void show() {
@@ -31,6 +31,9 @@ public class PlayScreen extends BaseScreen{
 		
 		groupBi = new GroupBi(this);
 		stage.addActor(groupBi);
+		
+		bottomTaskBar = new BottomTaskBar();
+		stage.addActor(bottomTaskBar);
 		
 	}
 	

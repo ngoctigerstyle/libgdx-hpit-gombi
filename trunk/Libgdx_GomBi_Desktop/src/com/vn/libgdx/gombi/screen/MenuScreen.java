@@ -16,6 +16,9 @@ public class MenuScreen extends BaseScreen{
 	@Override
 	public void show() {
 		super.show();
+		Image imgBack = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/menu-back")));
+		stage.addActor(imgBack);
+		
 		Image menuBall = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/ball-text")));
 		menuBall.setX(200);
 		menuBall.setY(270);

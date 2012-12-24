@@ -10,7 +10,7 @@ import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
 public class MyTTPacker {
 	public static void main(String[] args) {
 		Settings tt = new Settings();
-		tt.maxWidth = 512;
+		tt.maxWidth = 1024;
 		tt.minWidth = 512;
 		TexturePacker2.process(tt, "MyData/", "MyDataPacker/", "FileMoTa.txt");
 		TexturePacker2.process(tt, "MySkin/", "MySkinPacker/", "uiskin.atlas");

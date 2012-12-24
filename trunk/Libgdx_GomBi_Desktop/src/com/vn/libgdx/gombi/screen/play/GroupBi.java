@@ -18,8 +18,8 @@ public class GroupBi extends Group{
 	public static int X = 125;
 	public static int Y = 40;
 	
-	public static int WIDTH = 650;
-	public static int HEIGH = 405;
+	public static int WIDTH = 660;
+	public static int HEIGH = 415;
 	
 	private BiXam biXam;
 	private BiXanh biXanh;
@@ -91,8 +91,11 @@ public class GroupBi extends Group{
 	}
 	
 	private void checkBiXamAnBiXanh(){
-		Actor a = biXanh.hit(biXam.getX_Image(), biXam.getY_Image(), false);
-		if (a != null)
+		Actor a1 = biXanh.hit(biXam.getX_ImageAverage(), biXam.getY_Image(), false);
+		Actor a2 = biXanh.hit(biXam.getX_ImageAverage2(), biXam.getY_ImageAverage(), false);
+		Actor a3 = biXanh.hit(biXam.getX_ImageAverage(), biXam.getY_ImageAverage2(), false);
+		Actor a4 = biXanh.hit(biXam.getX_Image(), biXam.getY_ImageAverage(), false);
+		if ((a1 != null)||(a2 != null)||(a3!= null)||(a4!=null))
 			biXamAnBiXanh();
 	}
 	
@@ -104,7 +107,7 @@ public class GroupBi extends Group{
 	}
 	
 	private void checkBiXamTrungBiDo(){
-		Actor a = gBiDo.hit(biXam.getX_Image(), biXam.getY_Image(), false);
+		Actor a = gBiDo.hit(biXam.getX_ImageAverage(), biXam.getY_ImageAverage(), false);
 		if (a != null)
 			biXamTrungBiDo();
 	}

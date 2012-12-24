@@ -47,8 +47,24 @@ public class BiBase extends Group{
 		return image.getX();
 	}
 	
+	public float getX_ImageAverage(){
+		return image.getX() + image.getWidth() / 2;
+	}
+	
+	public float getX_ImageAverage2(){
+		return image.getX() + image.getWidth();
+	}
+	
 	public float getY_Image(){
 		return image.getY();
+	}
+	
+	public float getY_ImageAverage2(){
+		return image.getY() + image.getHeight();
+	}
+	
+	public float getY_ImageAverage(){
+		return image.getY() + image.getHeight() / 2;
 	}
 	
 	public void incX(int x){
