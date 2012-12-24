@@ -86,5 +86,5 @@ public class BiXam extends BiBase{
 	public void myAct() {
 		super.myAct();
 		diChuyen();
-	}
+	}	
 }

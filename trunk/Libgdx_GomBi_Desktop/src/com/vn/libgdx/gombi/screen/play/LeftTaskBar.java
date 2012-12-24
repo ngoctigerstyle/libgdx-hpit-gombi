@@ -14,6 +14,10 @@ public class LeftTaskBar extends Group{
 
 	private Label lScore2;
 	private Label lThuThap2;
+	private Label lScore;
+	private Label lThuThap;
+	private Label lNangLuong;
+	private Label lNangLuong2;
 	
 	public LeftTaskBar() {
 		super();
@@ -27,6 +31,27 @@ public class LeftTaskBar extends Group{
 		iPower = 0;
 	}
 	
+	public int getScore(){
+		return iScore;
+	}
+	
+	public int getColection(){
+		return iColection;
+	}
+	
+	public void endGame(){
+		removeKetQua();
+	}
+	
+	private void removeKetQua() {
+		lScore.remove();
+		lScore2.remove();
+		lThuThap.remove();
+		lThuThap2.remove();
+		lNangLuong.remove();
+		lNangLuong2.remove();
+	}
+
 	private void khoiTaoLabel(){
 		Image imgLogo = new Image(GameControl.getAtlas().findRegion("menu/ball-text"));
 		imgLogo.setX(15);
@@ -35,7 +60,7 @@ public class LeftTaskBar extends Group{
 		imgLogo.setHeight(30);
 		this.addActor(imgLogo);
 		
-		Label lScore = new Label("Score:", GameControl.getMySkin(), "default");
+		lScore = new Label("Score:", GameControl.getMySkin(), "default");
 		lScore.setX(5);
 		lScore.setY(380);
 		this.addActor(lScore);
@@ -46,7 +71,7 @@ public class LeftTaskBar extends Group{
 		lScore2.setY(lScore.getY());
 		this.addActor(lScore2);
 		
-		Label lThuThap = new Label("Colection:", GameControl.getMySkin(), "default");
+		lThuThap = new Label("Colection:", GameControl.getMySkin(), "default");
 		lThuThap.setX(lScore.getX());
 		lThuThap.setY(lScore.getY() - 30);
 		this.addActor(lThuThap);
@@ -57,12 +82,12 @@ public class LeftTaskBar extends Group{
 		lThuThap2.setY(lThuThap.getY());
 		this.addActor(lThuThap2);
 		
-		Label lNangLuong = new Label("Power:", GameControl.getMySkin(), "default");
+		lNangLuong = new Label("Power:", GameControl.getMySkin(), "default");
 		lNangLuong.setX(lScore.getX());
 		lNangLuong.setY(lScore.getY() - 60);
 		this.addActor(lNangLuong);
 		
-		Label lNangLuong2 = new Label("None", GameControl.getMySkin(), "default");
+		lNangLuong2 = new Label("None", GameControl.getMySkin(), "default");
 		//lNangLuong2.setFontScaleY(0.7f);
 		lNangLuong2.setColor(Color.RED);
 		lNangLuong2.setX(lScore.getX());

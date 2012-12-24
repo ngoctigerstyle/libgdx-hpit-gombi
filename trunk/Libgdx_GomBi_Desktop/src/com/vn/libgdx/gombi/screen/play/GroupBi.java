@@ -1,8 +1,11 @@
 package com.vn.libgdx.gombi.screen.play;
 
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.vn.libgdx.gombi.helper.Input;
 import com.vn.libgdx.gombi.screen.PlayScreen;
+import com.vn.libgdx.gombi.screen.play.bi.BiBase;
 import com.vn.libgdx.gombi.screen.play.bi.BiDo;
 import com.vn.libgdx.gombi.screen.play.bi.BiVang;
 import com.vn.libgdx.gombi.screen.play.bi.BiXam;
@@ -38,10 +41,11 @@ public class GroupBi extends Group{
 		gBiDo = new Group();
 		this.addActor(gBiDo);
 		
-		khoiTaoBi(BI_VANG);
+		//khoiTaoBi(BI_VANG);
 		khoiTaoBi(BI_XANH);
-		khoiTaoBi(BI_DO);
 		khoiTaoBi(BI_XAM);
+		khoiTaoBi(BI_DO);
+		
 	}
 	
 	private static int BI_XAM = 0;
@@ -64,18 +68,26 @@ public class GroupBi extends Group{
 			this.addActor(biXanh);
 			break;
 		case 3:
-			BiDo biDo = new BiDo();
+			BiDo biDo = new BiDo(this);
 			gBiDo.addActor(biDo);
 			break;
 		}
 	}
+	
+	
 
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
+		
 		checkBiXamAnBiXanh();
+		
 		if (pauseGame == false)
 			checkBiXamTrungBiDo();
+		
+		//ham nay de test.
+		if (Input.pressKey(Keys.NUM_1))
+			biXamTrungBiDo();
 	}
 	
 	private void checkBiXamAnBiXanh(){
@@ -86,7 +98,7 @@ public class GroupBi extends Group{
 	
 	private void biXamAnBiXanh(){
 		biXanh.doiViTri();
-		BiDo biDo= new BiDo();
+		BiDo biDo= new BiDo(this);
 		gBiDo.addActor(biDo);
 		playScreen.getLeftTaskBar().biXamAnBiXanh();
 	}
@@ -98,13 +110,17 @@ public class GroupBi extends Group{
 	}
 	
 	private void biXamTrungBiDo(){
-		//GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
 		biXam.setChay(false);
 		for (Actor a : gBiDo.getChildren())
 			if (a instanceof BiDo){
 				((BiDo)a).setChay(false);
 			}
+		playScreen.getLeftTaskBar().endGame();
 		pauseGame = true;
 		playScreen.showKetQua();
+	}
+	
+	public BiXam getBiXam(){
+		return biXam;
 	}
 }

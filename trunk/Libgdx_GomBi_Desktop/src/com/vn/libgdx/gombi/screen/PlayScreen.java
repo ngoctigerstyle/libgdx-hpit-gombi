@@ -35,7 +35,7 @@ public class PlayScreen extends BaseScreen{
 	}
 	
 	public void showKetQua(){
-		bangKetQua = new BangKetQua();
+		bangKetQua = new BangKetQua(leftTaskBar.getScore(), leftTaskBar.getColection());
 		stage.addActor(bangKetQua);
 	}
 	
@@ -64,8 +64,6 @@ public class PlayScreen extends BaseScreen{
 	@Override
 	public void render(float arg0) {
 		super.render(arg0);
-		if (Input.pressKey(Keys.NUM_1))
-			showKetQua();
 	}
 
 	@Override
