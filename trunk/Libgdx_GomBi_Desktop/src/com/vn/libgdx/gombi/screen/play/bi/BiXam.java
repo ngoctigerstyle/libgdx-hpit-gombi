@@ -80,6 +80,11 @@ public class BiXam extends BiBase{
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
+	}
+
+	@Override
+	public void myAct() {
+		super.myAct();
 		diChuyen();
 	}
 }

@@ -1,6 +1,5 @@
 package com.vn.libgdx.gombi.screen;
 
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.vn.libgdx.gombi.screen.play.GroupBi;
 import com.vn.libgdx.gombi.screen.play.KhungGame;
 import com.vn.libgdx.gombi.screen.play.LeftTaskBar;
@@ -26,12 +25,14 @@ public class PlayScreen extends BaseScreen{
 		leftTaskBar = new LeftTaskBar();
 		stage.addActor(leftTaskBar);
 		
-		groupBi = new GroupBi();
+		groupBi = new GroupBi(this);
 		stage.addActor(groupBi);
-		
-		
 	}
-
+	
+	public LeftTaskBar getLeftTaskBar(){
+		return leftTaskBar;
+	}
+	
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub

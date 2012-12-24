@@ -1,9 +1,10 @@
 package com.vn.libgdx.gombi.screen.play;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.vn.libgdx.gombi.screen.play.bi.BiBase;
+import com.vn.libgdx.gombi.gamelogic.GameControl;
+import com.vn.libgdx.gombi.screen.ManagerScreen;
+import com.vn.libgdx.gombi.screen.PlayScreen;
 import com.vn.libgdx.gombi.screen.play.bi.BiDo;
 import com.vn.libgdx.gombi.screen.play.bi.BiVang;
 import com.vn.libgdx.gombi.screen.play.bi.BiXam;
@@ -11,6 +12,8 @@ import com.vn.libgdx.gombi.screen.play.bi.BiXanh;
 
 public class GroupBi extends Group{
 
+	private PlayScreen playScreen;
+	
 	public static int X = 125;
 	public static int Y = 40;
 	
@@ -22,8 +25,9 @@ public class GroupBi extends Group{
 	private BiVang biVang;
 	private Group gBiDo;
 	
-	public GroupBi() {
+	public GroupBi(PlayScreen playScreen) {
 		super();
+		this.playScreen = playScreen;
 		this.setX(this.X);
 		this.setY(this.Y);
 		this.setWidth(this.WIDTH);
@@ -81,9 +85,20 @@ public class GroupBi extends Group{
 		biXanh.doiViTri();
 		BiDo biDo= new BiDo();
 		gBiDo.addActor(biDo);
+		playScreen.getLeftTaskBar().biXamAnBiXanh();
 	}
 	
 	private void checkBiXamTrungBiDo(){
-		
+		Actor a = gBiDo.hit(biXam.getX_Image(), biXam.getY_Image(), false);
+		if (a != null)
+			biXamTrungBiDo();
+	}
+	
+	private void biXamTrungBiDo(){
+		//GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
+		biXam.setChay(false);
+		for (Actor a : gBiDo.getChildren())
+			if (a instanceof BiDo)
+				((BiDo)a).setChay(false);
 	}
 }

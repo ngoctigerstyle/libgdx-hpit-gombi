@@ -8,16 +8,26 @@ import com.vn.libgdx.gombi.screen.play.GroupBi;
 
 public class BiBase extends Group{
 
+	protected boolean bChay;
 	protected Image image;
 	protected float x_max;
 	protected float y_max;
 	
 	public BiBase() {
 		super();
+		bChay = true;
+	}
+	
+	public void setChay(boolean b){
+		bChay = b;
 	}
 	
 	public Image getImage(){
 		return image;
+	}
+	
+	public void myAct(){
+		
 	}
 	
 	public void setXY_Image(float x, float y){
@@ -73,6 +83,8 @@ public class BiBase extends Group{
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
+		if (bChay == true)
+			myAct();
 	}
 	
 }

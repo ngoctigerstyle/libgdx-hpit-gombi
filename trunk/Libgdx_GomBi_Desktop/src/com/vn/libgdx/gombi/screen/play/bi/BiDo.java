@@ -34,6 +34,12 @@ public class BiDo extends BiBase{
 		super.act(arg0);
 		//Gdx.app.log(String.valueOf(bPhuong), String.valueOf(bHuong));
 		
+	}
+	
+	
+	@Override
+	public void myAct() {
+		super.myAct();
 		if (bPhuong == false)
 			if (bHuong == false){
 				this.setX_Image(this.getX_Image() + TOC_DO);
@@ -59,6 +65,5 @@ public class BiDo extends BiBase{
 					bHuong = false;
 			}
 		}
-		
 	}
 }
