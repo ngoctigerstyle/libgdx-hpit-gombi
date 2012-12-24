@@ -37,7 +37,7 @@ public class BiDo extends BiBase{
 		if (bPhuong == false)
 			if (bHuong == false){
 				this.setX_Image(this.getX_Image() + TOC_DO);
-				if (this.getX_Image() > GroupBi.WIDTH)
+				if (this.getX_Image() > x_max)
 					bHuong = true;
 			}
 			else{
@@ -50,7 +50,7 @@ public class BiDo extends BiBase{
 			if (bHuong == false)
 			{
 				this.setY_Image(this.getY_Image() + TOC_DO);
-				if (this.getY_Image() > GroupBi.HEIGH)
+				if (this.getY_Image() > y_max)
 					bHuong = true;
 			}
 			else{

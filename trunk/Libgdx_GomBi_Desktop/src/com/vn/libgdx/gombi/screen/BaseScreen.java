@@ -17,7 +17,7 @@ public class BaseScreen implements Screen{
 	@Override
 	public void show() {
 		sb = new SpriteBatch();
-		stage = new Stage(800, 480, true);
+		stage = new Stage(800, 480, false);
 		Gdx.input.setInputProcessor(stage);
 		camera = (OrthographicCamera) stage.getCamera();
 	}

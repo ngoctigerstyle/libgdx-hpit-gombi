@@ -16,6 +16,10 @@ public class BiBase extends Group{
 		super();
 	}
 	
+	public Image getImage(){
+		return image;
+	}
+	
 	public void setXY_Image(float x, float y){
 		image.setX(x);
 		image.setY(y);
@@ -55,8 +59,8 @@ public class BiBase extends Group{
 	
 	public void randomViTri(){
 		Random r = new Random();
-		image.setX(r.nextInt(GroupBi.WIDTH));
-		image.setY(r.nextInt(GroupBi.HEIGH));
+		image.setX(r.nextInt(GroupBi.WIDTH - (int)image.getWidth()));
+		image.setY(r.nextInt(GroupBi.HEIGH - (int)image.getHeight()));
 	}
 	
 	public void setXY_Max(){

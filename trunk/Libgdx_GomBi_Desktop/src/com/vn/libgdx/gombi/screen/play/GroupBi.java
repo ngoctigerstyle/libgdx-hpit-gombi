@@ -1,7 +1,9 @@
 package com.vn.libgdx.gombi.screen.play;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.vn.libgdx.gombi.screen.play.bi.BiBase;
 import com.vn.libgdx.gombi.screen.play.bi.BiDo;
 import com.vn.libgdx.gombi.screen.play.bi.BiVang;
 import com.vn.libgdx.gombi.screen.play.bi.BiXam;
@@ -12,8 +14,8 @@ public class GroupBi extends Group{
 	public static int X = 125;
 	public static int Y = 40;
 	
-	public static int WIDTH = 634;
-	public static int HEIGH = 397;
+	public static int WIDTH = 650;
+	public static int HEIGH = 405;
 	
 	private BiXam biXam;
 	private BiXanh biXanh;
@@ -32,10 +34,6 @@ public class GroupBi extends Group{
 		
 		khoiTaoBi(BI_VANG);
 		khoiTaoBi(BI_XANH);
-		khoiTaoBi(BI_DO);
-		khoiTaoBi(BI_DO);
-		khoiTaoBi(BI_DO);
-		khoiTaoBi(BI_DO);
 		khoiTaoBi(BI_DO);
 		khoiTaoBi(BI_XAM);
 	}
@@ -69,8 +67,23 @@ public class GroupBi extends Group{
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-//		if (Gdx.input.isTouched())
-//			biXanh.doiViTri();
-		//gBiDo.act(arg0);
+		checkBiXamAnBiXanh();
+		checkBiXamTrungBiDo();
+	}
+	
+	private void checkBiXamAnBiXanh(){
+		Actor a = biXanh.hit(biXam.getX_Image(), biXam.getY_Image(), false);
+		if (a != null)
+			biXamAnBiXanh();
+	}
+	
+	private void biXamAnBiXanh(){
+		biXanh.doiViTri();
+		BiDo biDo= new BiDo();
+		gBiDo.addActor(biDo);
+	}
+	
+	private void checkBiXamTrungBiDo(){
+		
 	}
 }

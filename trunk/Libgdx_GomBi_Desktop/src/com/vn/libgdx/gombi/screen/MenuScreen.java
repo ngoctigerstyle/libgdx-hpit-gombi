@@ -17,9 +17,9 @@ public class MenuScreen extends BaseScreen{
 	public void show() {
 		super.show();
 		Image menuBall = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/ball-text")));
-		stage.addActor(menuBall);
-		menuBall.setX((stage.getWidth()-menuBall.getWidth())/2);
+		menuBall.setX(200);
 		menuBall.setY(270);
+		stage.addActor(menuBall);
 		
 		TextButton tB1 = new TextButton("new game", GameControl.getMySkin());
 		tB1.setX(280);
