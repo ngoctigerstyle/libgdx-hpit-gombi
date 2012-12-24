@@ -13,10 +13,12 @@ import com.vn.libgdx.gombi.gamelogic.GameControl;
 
 public class MenuScreen extends BaseScreen{
 
+	private Image imgBack;
+	
 	@Override
 	public void show() {
 		super.show();
-		Image imgBack = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/menu-back")));
+		imgBack = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/menu-back")));
 		stage.addActor(imgBack);
 		
 		Image menuBall = new Image(new TextureRegion(GameControl.getAtlas().findRegion("menu/ball-text")));
@@ -82,6 +84,7 @@ public class MenuScreen extends BaseScreen{
 	@Override
 	public void render(float arg0) {
 		super.render(arg0);
+		//imgBack.setX(imgBack.getX()+5);
 	}
 
 	@Override
