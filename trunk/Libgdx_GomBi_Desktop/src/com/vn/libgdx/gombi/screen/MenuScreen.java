@@ -21,12 +21,19 @@ public class MenuScreen extends BaseScreen{
 		menuBall.setY(270);
 		stage.addActor(menuBall);
 		
-		TextButton tB1 = new TextButton("new game", GameControl.getMySkin());
+		TextButton tB1 = new TextButton("New game", GameControl.getMySkin());
 		tB1.setX(280);
 		tB1.setY(180);
 		tB1.setWidth(200);
 		tB1.setHeight(70);
 		stage.addActor(tB1);
+		
+		TextButton tB2 = new TextButton("Quit game", GameControl.getMySkin());
+		tB2.setX(280);
+		tB2.setY(100);
+		tB2.setWidth(200);
+		tB2.setHeight(70);
+		stage.addActor(tB2);
 		
 		
 //		MoveToAction move = new MoveToAction();
@@ -40,18 +47,33 @@ public class MenuScreen extends BaseScreen{
 			@Override
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
-				GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
 			}
 
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				
 				return super.touchDown(event, x, y, pointer, button);
 			}
 		});
 		
+		tB2.addListener(new ClickListener(){
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y,
+					int pointer, int button) {
+				return super.touchDown(event, x, y, pointer, button);
+			}
+
+			@Override
+			public void touchUp(InputEvent arg0, float arg1, float arg2,
+					int arg3, int arg4) {
+				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				Gdx.app.exit();
+			}
+			
+		});
 	}
 	
 	@Override

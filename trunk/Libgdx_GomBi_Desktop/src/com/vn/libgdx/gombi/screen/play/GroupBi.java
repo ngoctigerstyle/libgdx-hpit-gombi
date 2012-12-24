@@ -2,8 +2,6 @@ package com.vn.libgdx.gombi.screen.play;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.vn.libgdx.gombi.gamelogic.GameControl;
-import com.vn.libgdx.gombi.screen.ManagerScreen;
 import com.vn.libgdx.gombi.screen.PlayScreen;
 import com.vn.libgdx.gombi.screen.play.bi.BiDo;
 import com.vn.libgdx.gombi.screen.play.bi.BiVang;
@@ -25,6 +23,8 @@ public class GroupBi extends Group{
 	private BiVang biVang;
 	private Group gBiDo;
 	
+	private boolean pauseGame;
+	
 	public GroupBi(PlayScreen playScreen) {
 		super();
 		this.playScreen = playScreen;
@@ -32,6 +32,8 @@ public class GroupBi extends Group{
 		this.setY(this.Y);
 		this.setWidth(this.WIDTH);
 		this.setHeight(this.HEIGH);
+		
+		pauseGame = false;
 		
 		gBiDo = new Group();
 		this.addActor(gBiDo);
@@ -72,7 +74,8 @@ public class GroupBi extends Group{
 	public void act(float arg0) {
 		super.act(arg0);
 		checkBiXamAnBiXanh();
-		checkBiXamTrungBiDo();
+		if (pauseGame == false)
+			checkBiXamTrungBiDo();
 	}
 	
 	private void checkBiXamAnBiXanh(){
@@ -98,7 +101,10 @@ public class GroupBi extends Group{
 		//GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
 		biXam.setChay(false);
 		for (Actor a : gBiDo.getChildren())
-			if (a instanceof BiDo)
+			if (a instanceof BiDo){
 				((BiDo)a).setChay(false);
+			}
+		pauseGame = true;
+		playScreen.showKetQua();
 	}
 }

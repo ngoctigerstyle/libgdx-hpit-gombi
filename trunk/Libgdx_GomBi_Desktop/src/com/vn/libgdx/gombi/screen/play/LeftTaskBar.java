@@ -76,11 +76,11 @@ public class LeftTaskBar extends Group{
 	}
 	
 	private void incScore(){
-		iScore++;
+		iScore+=5;
 		lScore2.setText(String.valueOf(iScore));
 	}
 	private void incCollection(){
-		iColection+=5;
+		iColection++;
 		lThuThap2.setText(String.valueOf(iColection));
 	}
 }
