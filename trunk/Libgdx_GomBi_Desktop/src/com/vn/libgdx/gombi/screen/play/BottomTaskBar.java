@@ -28,24 +28,16 @@ public class BottomTaskBar extends Group{
 		iBottom.setY(10);
 		iBottom.setWidth(iLong);
 		this.addActor(iBottom);
-		iBottom.scale(-1.1f, 0);
 	}
 
 	private void remainTime(){
-		iLong-=5;
-//		Gdx.app.log("", String.valueOf(iLong));
-		
-		
+		iLong-=2;
+		iBottom.setWidth(iLong);
+		iBottom.invalidate();
 		
 		if (iLong < 0){
 			bRemain = false;
 			iLong = 677;
-			iBottom.setWidth(iLong);
-			for (int i=0; i<10; i++)
-			{
-				iLong-=20;
-				iBottom.setWidth(iLong);
-			}
 		}
 	}
 
@@ -54,12 +46,7 @@ public class BottomTaskBar extends Group{
 		super.act(arg0);
 		if (bRemain == true)
 			remainTime();
-		if (Input.pressKey(Keys.NUM_2))
-			callRemain();
-//		remainTime();
-//		iLong-=100;
-//		iBottom.setWidth(iLong);
-		
+		remainTime();
 	}
 	
 	public void callRemain(){
