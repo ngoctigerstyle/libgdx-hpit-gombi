@@ -10,5 +10,5 @@ public class MySkin extends Skin{
 		super(Gdx.files.internal("MyDataPacker/uiskin.json"), 
 				new TextureAtlas(Gdx.files.internal("MyDataPacker/MoTa.txt")));
 	}
-	
+	//test
 }
