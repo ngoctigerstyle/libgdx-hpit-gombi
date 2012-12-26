@@ -27,6 +27,7 @@ public class BottomTaskBar extends Group{
 		iBottom.setX(111);
 		iBottom.setY(10);
 		iBottom.setWidth(iLong);
+		iBottom.setHeight(15);
 		this.addActor(iBottom);
 	}
 
