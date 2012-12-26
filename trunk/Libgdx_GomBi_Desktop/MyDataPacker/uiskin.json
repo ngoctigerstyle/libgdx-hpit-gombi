@@ -27,7 +27,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
 	
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
-	default: { up: hinh1/button-green-up, down: hinh1/button-green-down, font: default-font, fontColor: white}
+	default: { up: button-green-up, down: button-green-down, font: default-font, fontColor: white}
 },
 com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
 	
