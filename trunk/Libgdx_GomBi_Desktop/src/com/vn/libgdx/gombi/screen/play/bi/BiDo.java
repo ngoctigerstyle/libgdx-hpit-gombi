@@ -19,7 +19,7 @@ public class BiDo extends BiBase{
 	public BiDo(GroupBi groupBi) {
 		super();
 		this.groupBi = groupBi;
-		image = new Image(GameControl.getAtlas().findRegion("play/bi/do"));
+		image = new Image(GameControl.getAtlas().findRegion("play-bi-do"));
 		randomViTri();
 		this.addActor(image);
 		setXY_Max();

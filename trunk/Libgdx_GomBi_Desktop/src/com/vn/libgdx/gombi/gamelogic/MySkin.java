@@ -7,8 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class MySkin extends Skin{
 
 	public MySkin() {
-		super(Gdx.files.internal("MySkinPacker/uiskin.json"), 
-				new TextureAtlas(Gdx.files.internal("MySkinPacker/uiskin.atlas")));
+		super(Gdx.files.internal("MyDataPacker/uiskin.json"), 
+				new TextureAtlas(Gdx.files.internal("MyDataPacker/MoTa.txt")));
 	}
 	
 }

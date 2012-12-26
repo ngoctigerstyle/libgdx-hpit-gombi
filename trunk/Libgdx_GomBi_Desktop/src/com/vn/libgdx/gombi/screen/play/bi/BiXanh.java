@@ -8,7 +8,7 @@ public class BiXanh extends BiBase{
 
 	public BiXanh() {
 		super();
-		image = new Image(GameControl.getAtlas().findRegion("play/bi/xanh"));
+		image = new Image(GameControl.getAtlas().findRegion("play-bi-xanh"));
 		doiViTri();
 		this.addActor(image);
 		

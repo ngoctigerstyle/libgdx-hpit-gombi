@@ -18,7 +18,7 @@ public class BiXam extends BiBase{
 	public BiXam(GroupBi groupBi) {
 		super();
 		this.groupBi = groupBi;
-		image = new Image(GameControl.getAtlas().findRegion("play/bi/xam"));
+		image = new Image(GameControl.getAtlas().findRegion("play-bi-xam"));
 		image.setX(X_DEFAULT);
 		image.setY(Y_DEFAULT);
 		this.addActor(image);

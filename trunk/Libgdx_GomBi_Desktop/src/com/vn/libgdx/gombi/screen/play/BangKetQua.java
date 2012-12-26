@@ -38,12 +38,12 @@ public class BangKetQua extends Group{
 	this.iScore = iScore;
 	this.iColection = iColection;
 	
-	nenXam = new Image(GameControl.getAtlas().findRegion("play/ketqua/xam-1"));
+	nenXam = new Image(GameControl.getAtlas().findRegion("play-ketqua-xam-1"));
 	nenXam.setWidth(800);
 	nenXam.setHeight(480);
 	this.addActor(nenXam);
 	
-	NinePatch npKhung = new NinePatch(GameControl.getAtlas().findRegion("play/ketqua/khung"), 8,8,8,8);
+	NinePatch npKhung = new NinePatch(GameControl.getAtlas().findRegion("play-ketqua-khung"), 8,8,8,8);
 	imgKhung = new Image(npKhung);
 	imgKhung.setX(300);
 	imgKhung.setY(100);

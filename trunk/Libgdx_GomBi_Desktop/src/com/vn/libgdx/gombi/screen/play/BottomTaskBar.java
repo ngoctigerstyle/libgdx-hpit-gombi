@@ -22,7 +22,7 @@ public class BottomTaskBar extends Group{
 	}
 	
 	private void init(){
-		NinePatch ninePatch = new NinePatch(GameControl.getAtlas().findRegion("play/bottom"),8 ,8 ,8 ,8);
+		NinePatch ninePatch = new NinePatch(GameControl.getAtlas().findRegion("play-bottom"),8 ,8 ,8 ,8);
 		iBottom = new Image(ninePatch);
 		iBottom.setX(111);
 		iBottom.setY(10);

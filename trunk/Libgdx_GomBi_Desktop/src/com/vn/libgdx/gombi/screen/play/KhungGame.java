@@ -12,7 +12,7 @@ public class KhungGame extends Group{
 	public KhungGame() {
 		super();
 		
-		NinePatch np = new NinePatch(GameControl.getAtlas().findRegion("play/khung"),180,50,70,50);
+		NinePatch np = new NinePatch(GameControl.getAtlas().findRegion("play-khung"),180,50,70,50);
 		
 		imgKhung = new Image(np);
 		imgKhung.setX(0);

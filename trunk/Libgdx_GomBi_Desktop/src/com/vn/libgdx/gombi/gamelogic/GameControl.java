@@ -17,7 +17,7 @@ public class GameControl extends Game{
 	
 	@Override
 	public void create() {
-		atlas = new TextureAtlas(Gdx.files.internal("MyDataPacker/FileMoTa.txt"));
+		atlas = new TextureAtlas(Gdx.files.internal("MyDataPacker/MoTa.txt"));
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
 		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_PLAY));

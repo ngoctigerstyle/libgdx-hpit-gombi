@@ -53,7 +53,7 @@ public class LeftTaskBar extends Group{
 	}
 
 	private void khoiTaoLabel(){
-		Image imgLogo = new Image(GameControl.getAtlas().findRegion("menu/ball-text"));
+		Image imgLogo = new Image(GameControl.getAtlas().findRegion("menu-ballText"));
 		imgLogo.setX(15);
 		imgLogo.setY(420);
 		imgLogo.setWidth(80);
