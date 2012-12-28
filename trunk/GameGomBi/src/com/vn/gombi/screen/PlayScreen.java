@@ -15,6 +15,8 @@ public class PlayScreen extends BaseScreen {
 	private GroupBi groupBi;
 	private BangKetQua bangKetQua;
 	private BottomTaskBar bottomTaskBar;
+	
+	public static boolean PAUSE_GAME = false;
 
 	@Override
 	public void show() {

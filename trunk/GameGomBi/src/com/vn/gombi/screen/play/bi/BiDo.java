@@ -41,7 +41,6 @@ public class BiDo extends BiBase {
 	public void act(float arg0) {
 		super.act(arg0);
 		// Gdx.app.log(String.valueOf(bPhuong), String.valueOf(bHuong));
-
 	}
 
 	@Override
