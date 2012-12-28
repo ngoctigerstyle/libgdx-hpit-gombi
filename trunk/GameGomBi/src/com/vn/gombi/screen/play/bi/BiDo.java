@@ -11,7 +11,8 @@ public class BiDo extends BiBase {
 
 	private boolean bHuong;
 	private boolean bPhuong;
-	private int iTocDo = 2;
+	private int iSpeed = 2;
+	private int iSpeedBackUp = iSpeed;
 
 	private GroupBi groupBi;
 
@@ -35,7 +36,19 @@ public class BiDo extends BiBase {
 
 	public void randomTocDo() {
 		Random r = new Random();
-		iTocDo = r.nextInt(3) + 1;
+		iSpeed = r.nextInt(3) + 1;
+	}
+	
+	public void incSpeed(){
+		iSpeed++;
+	}
+	
+	public void desSpeed(){
+		iSpeed--;
+	}
+	
+	public void resetSpeed(){
+		iSpeed = iSpeedBackUp;
 	}
 
 	@Override
@@ -60,22 +73,22 @@ public class BiDo extends BiBase {
 	private void move(){
 		if (bPhuong == false)
 			if (bHuong == false) {
-				this.setX(this.getX() + iTocDo);
+				this.setX(this.getX() + iSpeed);
 				if (this.getX() > x_max)
 					bHuong = true;
 			} else {
-				this.setX(this.getX() - iTocDo);
+				this.setX(this.getX() - iSpeed);
 				if (this.getX() < 0)
 					bHuong = false;
 			}
 
 		if (bPhuong == true) {
 			if (bHuong == false) {
-				this.setY(this.getY() + iTocDo);
+				this.setY(this.getY() + iSpeed);
 				if (this.getY() > y_max)
 					bHuong = true;
 			} else {
-				this.setY(this.getY() - iTocDo);
+				this.setY(this.getY() - iSpeed);
 				if (this.getY() < 0)
 					bHuong = false;
 			}

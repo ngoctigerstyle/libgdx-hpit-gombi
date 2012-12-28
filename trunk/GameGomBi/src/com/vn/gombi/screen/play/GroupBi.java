@@ -38,7 +38,7 @@ public class GroupBi extends Group {
 		gBiMau = new Group();
 		this.addActor(gBiMau);
 
-		khoiTaoBi(BI_VANG);
+//		khoiTaoBi(BI_VANG);
 		khoiTaoBi(BI_XANH);
 		khoiTaoBi(BI_XAM);
 		khoiTaoBi(BI_DO);
@@ -46,11 +46,11 @@ public class GroupBi extends Group {
 	}
 
 	private static int BI_XAM = 0;
-	private static int BI_VANG = 1;
+	public static int BI_VANG = 1;
 	private static int BI_XANH = 2;
 	private static int BI_DO = 3;
 
-	private void khoiTaoBi(int maBi) {
+	public void khoiTaoBi(int maBi) {
 		switch (maBi) {
 		case 0:
 			biXam = new BiXam(this);
@@ -71,6 +71,24 @@ public class GroupBi extends Group {
 		}
 	}
 
+	public void incSpeedRed(){
+		for (Actor a : this.getChildren())
+			if (a instanceof BiDo)
+				((BiDo) a).incSpeed();
+	}
+	
+	public void desSpeedRed(){
+		for (Actor a : this.getChildren())
+			if (a instanceof BiDo)
+				((BiDo) a).desSpeed();
+	}
+	
+	public void resetSpeedRed(){
+		for (Actor a : this.getChildren())
+			if (a instanceof BiDo)
+				((BiDo) a).resetSpeed();
+	}
+	
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);

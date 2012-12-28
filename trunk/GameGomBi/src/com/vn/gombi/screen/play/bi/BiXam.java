@@ -1,5 +1,7 @@
 package com.vn.gombi.screen.play.bi;
 
+import java.util.Random;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -18,6 +20,7 @@ public class BiXam extends BiBase {
 	private static int Y_DEFAULT = 58;
 	private Vector2 viTriCuoi;
 	private int iTocDo;
+	private boolean bSuper;
 
 	public BiXam(GroupBi groupBi) {
 		super();
@@ -31,6 +34,7 @@ public class BiXam extends BiBase {
 		viTriCuoi = new Vector2(this.getX(), this.getY());
 		dieuKhien();
 		iTocDo = 4;
+		bSuper = false;
 	}
 
 	public void dieuKhien() {
@@ -78,43 +82,60 @@ public class BiXam extends BiBase {
 		if (viTriCuoi.y < this.getY() - iTocDo)
 			this.desY(iTocDo);
 	}
-	
-	private void checkCollision(Group gBiMau){
-		Actor a = gBiMau.hit(this.getX_ImageAverage(), this.getY_ImageAverage(), false);
-		if (a != null){
+
+	public void setSuper(boolean bSuper) {
+		this.bSuper = bSuper;
+	}
+
+	private void checkCollision(Group gBiMau) {
+		Actor a = gBiMau.hit(this.getX_ImageAverage(),
+				this.getY_ImageAverage(), false);
+		if (a != null) {
 			if (a instanceof BiVang)
-				chamBiVang((BiVang)a);
+				chamBiVang((BiVang) a);
 			else if (a instanceof BiXanh)
-				chamBiXanh((BiXanh)a);
+				chamBiXanh((BiXanh) a);
 			else if (a instanceof BiDo)
-				chamBiDo((BiDo)a);
+				chamBiDo((BiDo) a);
 		}
 	}
-	
-	private void chamBiVang(BiVang biVang){
-		Gdx.app.log("sdf", "vang");
+
+	private void chamBiVang(BiVang biVang) {
+		groupBi.getPlayScreen().getBottomTaskBar().putPower();
 	}
-	private void chamBiDo(BiDo biDo){
+
+	private void chamBiDo(BiDo biDo) {
 		Gdx.app.log("sdf", "do");
-		this.setChay(false);
-		for (Actor a : groupBi.getGroupBiMau().getChildren())
+		if (bSuper == false) {
+			this.setChay(false);
+			for (Actor a : groupBi.getGroupBiMau().getChildren())
 				((BiBase) a).setChay(false);
-		groupBi.getPlayScreen().getLeftTaskBar().endGame();
-		PlayScreen.PAUSE_GAME = true;
-		groupBi.getPlayScreen().showKetQua();
+			groupBi.getPlayScreen().getLeftTaskBar().endGame();
+			PlayScreen.PAUSE_GAME = true;
+			groupBi.getPlayScreen().showKetQua();
+		}else{
+			biDo.remove();
+			biDo = null;
+		}
 	}
-	private void chamBiXanh(BiXanh biXanh){
+
+	private void chamBiXanh(BiXanh biXanh) {
 		Gdx.app.log("sdf", "xanh");
 		biXanh.doiViTri();
 		BiDo biDo = new BiDo(groupBi);
 		groupBi.getGroupBiMau().addActor(biDo);
 		groupBi.getPlayScreen().getLeftTaskBar().biXamAnBiXanh();
+		
+		Random r = new Random();
+		int i = r.nextInt(3);
+		if (i == 0)
+			groupBi.khoiTaoBi(GroupBi.BI_VANG);
 	}
 
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		if (PlayScreen.PAUSE_GAME == false){
+		if (PlayScreen.PAUSE_GAME == false) {
 			diChuyen();
 			checkCollision(groupBi.getGroupBiMau());
 		}

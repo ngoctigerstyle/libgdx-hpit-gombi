@@ -10,14 +10,13 @@ public class LeftTaskBar extends Group {
 
 	private int iScore;
 	private int iColection;
-	private int iPower;
 
 	private Label lScore2;
-	private Label lThuThap2;
+	private Label lCollect2;
 	private Label lScore;
-	private Label lThuThap;
-	private Label lNangLuong;
-	private Label lNangLuong2;
+	private Label lCollect;
+	private Label lPower;
+	private Label lPower2;
 
 	public LeftTaskBar() {
 		super();
@@ -28,7 +27,6 @@ public class LeftTaskBar extends Group {
 	private void khoiTaoNumber() {
 		iScore = 0;
 		iColection = 0;
-		iPower = 0;
 	}
 
 	public int getScore() {
@@ -46,10 +44,10 @@ public class LeftTaskBar extends Group {
 	private void removeKetQua() {
 		lScore.remove();
 		lScore2.remove();
-		lThuThap.remove();
-		lThuThap2.remove();
-		lNangLuong.remove();
-		lNangLuong2.remove();
+		lCollect.remove();
+		lCollect2.remove();
+		lPower.remove();
+		lPower2.remove();
 	}
 
 	private void khoiTaoLabel() {
@@ -73,29 +71,37 @@ public class LeftTaskBar extends Group {
 		lScore2.setY(lScore.getY());
 		this.addActor(lScore2);
 
-		lThuThap = new Label("Colection:", GameControl.getMySkin(), "default");
-		lThuThap.setX(lScore.getX());
-		lThuThap.setY(lScore.getY() - 30);
-		this.addActor(lThuThap);
+		lCollect = new Label("Colection:", GameControl.getMySkin(), "default");
+		lCollect.setX(lScore.getX());
+		lCollect.setY(lScore.getY() - 30);
+		this.addActor(lCollect);
 
-		lThuThap2 = new Label(String.valueOf(iColection),
+		lCollect2 = new Label(String.valueOf(iColection),
 				GameControl.getMySkin(), "default");
-		lThuThap2.setX(lScore2.getX());
-		lThuThap2.setColor(Color.YELLOW);
-		lThuThap2.setY(lThuThap.getY());
-		this.addActor(lThuThap2);
+		lCollect2.setX(lScore2.getX());
+		lCollect2.setColor(Color.YELLOW);
+		lCollect2.setY(lCollect.getY());
+		this.addActor(lCollect2);
 
-		lNangLuong = new Label("Power:", GameControl.getMySkin(), "default");
-		lNangLuong.setX(lScore.getX());
-		lNangLuong.setY(lScore.getY() - 60);
-		this.addActor(lNangLuong);
+		lPower = new Label("Power:", GameControl.getMySkin(), "default");
+		lPower.setX(lScore.getX());
+		lPower.setY(lScore.getY() - 60);
+		this.addActor(lPower);
 
-		lNangLuong2 = new Label("None", GameControl.getMySkin(), "default");
+		lPower2 = new Label("None", GameControl.getMySkin(), "default");
 		// lNangLuong2.setFontScaleY(0.7f);
-		lNangLuong2.setColor(Color.RED);
-		lNangLuong2.setX(lScore.getX());
-		lNangLuong2.setY(lNangLuong.getY() - 20);
-		this.addActor(lNangLuong2);
+		lPower2.setColor(Color.RED);
+		lPower2.setX(lScore.getX());
+		lPower2.setY(lPower.getY() - 20);
+		this.addActor(lPower2);
+	}
+	
+	public void setLabelPower(String sPower){
+		lPower2.setText(sPower);
+	}
+	
+	public void resetLabelPower(){
+		lPower2.setText("none");
 	}
 
 	public void biXamAnBiXanh() {
@@ -110,6 +116,6 @@ public class LeftTaskBar extends Group {
 
 	private void incCollection() {
 		iColection++;
-		lThuThap2.setText(String.valueOf(iColection));
+		lCollect2.setText(String.valueOf(iColection));
 	}
 }
