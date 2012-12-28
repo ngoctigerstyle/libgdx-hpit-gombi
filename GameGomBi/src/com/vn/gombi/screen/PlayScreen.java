@@ -34,7 +34,7 @@ public class PlayScreen extends BaseScreen {
 		groupBi = new GroupBi(this);
 		stage.addActor(groupBi);
 
-		bottomTaskBar = new BottomTaskBar();
+		bottomTaskBar = new BottomTaskBar(this);
 		stage.addActor(bottomTaskBar);
 
 	}
@@ -48,22 +48,27 @@ public class PlayScreen extends BaseScreen {
 	public LeftTaskBar getLeftTaskBar() {
 		return leftTaskBar;
 	}
+	
+	public GroupBi getGroupBi(){
+		return groupBi;
+	}
+	
+	public BottomTaskBar getBottomTaskBar(){
+		return bottomTaskBar;
+	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 		super.dispose();
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 		super.hide();
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		super.pause();
 	}
 
@@ -74,14 +79,11 @@ public class PlayScreen extends BaseScreen {
 
 	@Override
 	public void resize(int arg0, int arg1) {
-		// TODO Auto-generated method stub
 		super.resize(arg0, arg1);
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		super.resume();
 	}
-
 }
