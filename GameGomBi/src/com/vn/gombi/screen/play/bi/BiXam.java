@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.screen.PlayScreen;
 import com.vn.gombi.screen.play.GroupBi;
 
 public class BiXam extends BiBase {
@@ -79,15 +80,42 @@ public class BiXam extends BiBase {
 	}
 	
 	private void checkCollision(Group gBiMau){
-		Actor a = gBiMau.hit(this.getX(), this.getY(), false);
-		if (a != null)
-			Gdx.app.log("sdf", a.toString());
+		Actor a = gBiMau.hit(this.getX_ImageAverage(), this.getY_ImageAverage(), false);
+		if (a != null){
+			if (a instanceof BiVang)
+				chamBiVang((BiVang)a);
+			else if (a instanceof BiXanh)
+				chamBiXanh((BiXanh)a);
+			else if (a instanceof BiDo)
+				chamBiDo((BiDo)a);
+		}
+	}
+	
+	private void chamBiVang(BiVang biVang){
+		Gdx.app.log("sdf", "vang");
+	}
+	private void chamBiDo(BiDo biDo){
+		Gdx.app.log("sdf", "do");
+		this.setChay(false);
+		for (Actor a : groupBi.getGroupBiMau().getChildren())
+				((BiBase) a).setChay(false);
+		groupBi.getPlayScreen().getLeftTaskBar().endGame();
+		PlayScreen.PAUSE_GAME = true;
+		groupBi.getPlayScreen().showKetQua();
+	}
+	private void chamBiXanh(BiXanh biXanh){
+		Gdx.app.log("sdf", "xanh");
+		biXanh.doiViTri();
+		BiDo biDo = new BiDo(groupBi);
+		groupBi.getGroupBiMau().addActor(biDo);
+		groupBi.getPlayScreen().getLeftTaskBar().biXamAnBiXanh();
 	}
 
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		checkCollision(groupBi.getGroupBiMau());
+		if (PlayScreen.PAUSE_GAME == false)
+			checkCollision(groupBi.getGroupBiMau());
 	}
 
 	@Override
