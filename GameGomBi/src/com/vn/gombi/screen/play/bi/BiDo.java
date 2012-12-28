@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.screen.PlayScreen;
 import com.vn.gombi.screen.play.GroupBi;
 
 public class BiDo extends BiBase {
@@ -40,7 +41,8 @@ public class BiDo extends BiBase {
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		// Gdx.app.log(String.valueOf(bPhuong), String.valueOf(bHuong));
+		if (PlayScreen.PAUSE_GAME == false)
+			move();
 	}
 
 	@Override
@@ -55,9 +57,7 @@ public class BiDo extends BiBase {
 			incY(10);
 	}
 
-	@Override
-	public void myAct() {
-		super.myAct();
+	private void move(){
 		if (bPhuong == false)
 			if (bHuong == false) {
 				this.setX(this.getX() + iTocDo);
@@ -80,5 +80,6 @@ public class BiDo extends BiBase {
 					bHuong = false;
 			}
 		}
+
 	}
 }

@@ -10,7 +10,6 @@ public class BiXanh extends BiBase {
 				"play/bi-xanh"));
 		this.setDrawable();
 		doiViTri();
-
 		setXY_Max();
 	}
 

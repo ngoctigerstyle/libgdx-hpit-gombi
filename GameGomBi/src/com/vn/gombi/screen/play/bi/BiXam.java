@@ -114,13 +114,9 @@ public class BiXam extends BiBase {
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		if (PlayScreen.PAUSE_GAME == false)
+		if (PlayScreen.PAUSE_GAME == false){
+			diChuyen();
 			checkCollision(groupBi.getGroupBiMau());
-	}
-
-	@Override
-	public void myAct() {
-		super.myAct();
-		diChuyen();
+		}
 	}
 }
