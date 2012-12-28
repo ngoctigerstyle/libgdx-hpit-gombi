@@ -21,7 +21,6 @@ public class BiBase extends Image {
 	public BiBase() {
 		super();
 		textureRegionDrawable = new TextureRegionDrawable();
-		bChay = true;
 	}
 	
 	/**
@@ -39,10 +38,6 @@ public class BiBase extends Image {
 
 	public void setChay(boolean b) {
 		bChay = b;
-	}
-
-	public void myAct() {
-
 	}
 
 	public float getX_ImageAverage() {
@@ -80,7 +75,7 @@ public class BiBase extends Image {
 	public void randomViTri() {
 		Random r = new Random();
 		this.setX(r.nextInt(GroupBi.WIDTH - (int) this.getWidth()));
-		this.setY(r.nextInt(GroupBi.WIDTH - (int) this.getHeight()));
+		this.setY(r.nextInt(GroupBi.HEIGH - (int) this.getHeight()));
 	}
 
 	public void setXY_Max() {
@@ -93,7 +88,5 @@ public class BiBase extends Image {
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		if (bChay == true)
-			myAct();
 	}
 }

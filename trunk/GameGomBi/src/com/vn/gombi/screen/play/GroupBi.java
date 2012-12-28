@@ -17,8 +17,8 @@ public class GroupBi extends Group {
 	public static int X = 125;
 	public static int Y = 40;
 
-	public static int WIDTH = 660;
-	public static int HEIGH = 415;
+	public static int WIDTH = 600;
+	public static int HEIGH = 400;
 
 	private Group gBiMau;
 	private BiXam biXam;

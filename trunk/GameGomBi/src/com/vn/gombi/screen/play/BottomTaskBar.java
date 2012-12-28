@@ -11,6 +11,17 @@ public class BottomTaskBar extends Group {
 	private int iLong;
 	private boolean bRemain;
 
+	public static int NONE = 0;
+	public static int BIDO_SPEED_INC = 1;
+	public static int BIDO_SPEED_DES = 2;
+	public static int BI_XAM_SIEU_NHAN = 3;
+	
+	public enum eStatus{
+		NONE, BIDO_SPEED_INC, BIDO_SPEED_DES, BI_XAM_SIEU_NHAN
+	}
+	
+	public int status;
+	
 	public BottomTaskBar() {
 		super();
 		iLong = 677;
@@ -34,7 +45,7 @@ public class BottomTaskBar extends Group {
 		iBottom.setWidth(iLong);
 		iBottom.invalidate();
 
-		if (iLong < 0) {
+		if (iLong < 10) {
 			bRemain = false;
 			iLong = 677;
 		}
@@ -45,7 +56,7 @@ public class BottomTaskBar extends Group {
 		super.act(arg0);
 		if (bRemain == true)
 			remainTime();
-		remainTime();
+//		callRemain();
 	}
 
 	public void callRemain() {
