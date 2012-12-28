@@ -6,17 +6,17 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.vn.gombi.helper.MySkin;
 import com.vn.gombi.screen.ManagerScreen;
 
-public class GameControl extends Game{
+public class GameControl extends Game {
 	private static ManagerScreen managerScreen;
 	private static MySkin mySkin;
 	private static TextureAtlas atlas;
-	
+
 	@Override
-	public void create() {		
+	public void create() {
 		atlas = new TextureAtlas(Gdx.files.internal("MyDataPacker/MoTa.txt"));
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
-		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
+		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_PLAY));
 	}
 
 	@Override
@@ -24,8 +24,8 @@ public class GameControl extends Game{
 	}
 
 	@Override
-	public void render() {		
-		if (managerScreen.getScreen()!= null)
+	public void render() {
+		if (managerScreen.getScreen() != null)
 			managerScreen.getScreen().render(Gdx.graphics.getDeltaTime());
 	}
 
@@ -40,16 +40,16 @@ public class GameControl extends Game{
 	@Override
 	public void resume() {
 	}
-	
-	public static TextureAtlas getAtlas(){
+
+	public static TextureAtlas getAtlas() {
 		return atlas;
 	}
-	
-	public static MySkin getMySkin(){
+
+	public static MySkin getMySkin() {
 		return mySkin;
 	}
-	
-	public static ManagerScreen getManagerScreen(){
+
+	public static ManagerScreen getManagerScreen() {
 		return managerScreen;
 	}
 }

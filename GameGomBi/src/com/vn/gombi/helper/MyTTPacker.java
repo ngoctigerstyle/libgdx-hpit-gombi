@@ -1,6 +1,6 @@
 package com.vn.gombi.helper;
 
-/*Su dung:
+/**Su dung:
  *Chuot phai vao MyTTPacker
  *Run as java application de pack hinh anh tu MyData sang MyDataPacker
  * */
@@ -14,10 +14,8 @@ public class MyTTPacker {
 		tt.maxWidth = 1024;
 		tt.minWidth = 512;
 		TexturePacker2.process(tt, "../GameGomBi-android/assets/MyData/",
-				"../GameGomBi-android/assets/MyDataPacker/", 
-				"MoTa.txt");
+				"../GameGomBi-android/assets/MyDataPacker/", "MoTa.txt");
 		TexturePacker2.process(tt, "../GameGomBi-android/assets/MySkin/",
-				"../GameGomBi-android/assets/MySkinPacker/", 
-				"MoTa.txt");
+				"../GameGomBi-android/assets/MySkinPacker/", "MoTa.txt");
 	}
 }

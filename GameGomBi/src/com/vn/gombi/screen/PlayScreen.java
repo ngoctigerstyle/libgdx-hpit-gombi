@@ -7,8 +7,7 @@ import com.vn.gombi.screen.play.KhungGame;
 import com.vn.gombi.screen.play.LeftTaskBar;
 import com.vn.gombi.screen.play.NenGach;
 
-
-public class PlayScreen extends BaseScreen{
+public class PlayScreen extends BaseScreen {
 
 	private NenGach nenGach;
 	private KhungGame khungGame;
@@ -16,37 +15,38 @@ public class PlayScreen extends BaseScreen{
 	private GroupBi groupBi;
 	private BangKetQua bangKetQua;
 	private BottomTaskBar bottomTaskBar;
-	
+
 	@Override
 	public void show() {
 		super.show();
-		
+
 		nenGach = new NenGach(this);
 		stage.addActor(nenGach);
-		
+
 		khungGame = new KhungGame();
 		stage.addActor(khungGame);
-		
+
 		leftTaskBar = new LeftTaskBar();
 		stage.addActor(leftTaskBar);
-		
+
 		groupBi = new GroupBi(this);
 		stage.addActor(groupBi);
-		
+
 		bottomTaskBar = new BottomTaskBar();
 		stage.addActor(bottomTaskBar);
-		
+
 	}
-	
-	public void showKetQua(){
-		bangKetQua = new BangKetQua(leftTaskBar.getScore(), leftTaskBar.getColection());
+
+	public void showKetQua() {
+		bangKetQua = new BangKetQua(leftTaskBar.getScore(),
+				leftTaskBar.getColection());
 		stage.addActor(bangKetQua);
 	}
-	
-	public LeftTaskBar getLeftTaskBar(){
+
+	public LeftTaskBar getLeftTaskBar() {
 		return leftTaskBar;
 	}
-	
+
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub

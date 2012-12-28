@@ -3,24 +3,25 @@ package com.vn.gombi.screen;
 import com.badlogic.gdx.Screen;
 
 public class ManagerScreen {
-	
+
 	public static int SCREEN_MENU = 0;
 	public static int SCREEN_PLAY = 1;
-	
+	public static int SCREEN_TEST = 2;
+
 	private Screen nowScreen;
-	
+
 	public ManagerScreen() {
 	}
-	
-	public Screen getScreen(){
-		if (nowScreen == null){
+
+	public Screen getScreen() {
+		if (nowScreen == null) {
 			nowScreen = new MenuScreen();
 			nowScreen.show();
 		}
 		return nowScreen;
 	}
-	
-	public Screen createScreen(int select){
+
+	public Screen createScreen(int select) {
 		switch (select) {
 		case 0:
 			clearNowScreen();
@@ -32,11 +33,16 @@ public class ManagerScreen {
 			nowScreen = new PlayScreen();
 			nowScreen.show();
 			return nowScreen;
+		case 2:
+			clearNowScreen();
+			nowScreen = new TestScreen();
+			nowScreen.show();
+			return nowScreen;
 		}
 		return new MenuScreen();
 	}
-	
-	private void clearNowScreen(){
+
+	private void clearNowScreen() {
 		if (nowScreen != null)
 			nowScreen.dispose();
 	}

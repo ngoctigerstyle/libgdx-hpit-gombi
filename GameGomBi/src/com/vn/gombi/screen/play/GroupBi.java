@@ -10,23 +10,23 @@ import com.vn.gombi.screen.play.bi.BiVang;
 import com.vn.gombi.screen.play.bi.BiXam;
 import com.vn.gombi.screen.play.bi.BiXanh;
 
-public class GroupBi extends Group{
+public class GroupBi extends Group {
 
 	private PlayScreen playScreen;
-	
+
 	public static int X = 125;
 	public static int Y = 40;
-	
+
 	public static int WIDTH = 660;
 	public static int HEIGH = 415;
-	
+
+	private Group gBiMau;
 	private BiXam biXam;
 	private BiXanh biXanh;
 	private BiVang biVang;
-	private Group gBiDo;
-	
+
 	private boolean pauseGame;
-	
+
 	public GroupBi(PlayScreen playScreen) {
 		super();
 		this.playScreen = playScreen;
@@ -34,25 +34,25 @@ public class GroupBi extends Group{
 		this.setY(GroupBi.Y);
 		this.setWidth(GroupBi.WIDTH);
 		this.setHeight(GroupBi.HEIGH);
-		
+
 		pauseGame = false;
-		
-		gBiDo = new Group();
-		this.addActor(gBiDo);
-		
-		//khoiTaoBi(BI_VANG);
+
+		gBiMau = new Group();
+		this.addActor(gBiMau);
+
+		// khoiTaoBi(BI_VANG);
 		khoiTaoBi(BI_XANH);
 		khoiTaoBi(BI_XAM);
 		khoiTaoBi(BI_DO);
-		
+
 	}
-	
+
 	private static int BI_XAM = 0;
 	private static int BI_VANG = 1;
 	private static int BI_XANH = 2;
 	private static int BI_DO = 3;
-	
-	private void khoiTaoBi(int maBi){
+
+	private void khoiTaoBi(int maBi) {
 		switch (maBi) {
 		case 0:
 			biXam = new BiXam(this);
@@ -60,69 +60,74 @@ public class GroupBi extends Group{
 			break;
 		case 1:
 			BiVang biVang = new BiVang();
-			this.addActor(biVang);
+			gBiMau.addActor(biVang);
 			break;
 		case 2:
 			biXanh = new BiXanh();
-			this.addActor(biXanh);
+			gBiMau.addActor(biXanh);
 			break;
 		case 3:
 			BiDo biDo = new BiDo(this);
-			gBiDo.addActor(biDo);
+			gBiMau.addActor(biDo);
 			break;
 		}
 	}
-	
-	
 
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
-		
-		checkBiXamAnBiXanh();
-		
-		if (pauseGame == false)
-			checkBiXamTrungBiDo();
-		
-		//ham nay de test.
-		if (MyInput.pressKey(Keys.NUM_1))
-			biXamTrungBiDo();
+
+//		checkBiXamAnBiXanh();
+
+//		if (pauseGame == false)
+//			checkBiXamTrungBiDo();
+
+		// ham nay de test.
+//		if (MyInput.pressKey(Keys.NUM_1))
+//			biXamTrungBiDo();
 	}
-	
-	private void checkBiXamAnBiXanh(){
-		Actor a1 = biXanh.hit(biXam.getX_ImageAverage(), biXam.getY_Image(), false);
-		Actor a2 = biXanh.hit(biXam.getX_ImageAverage2(), biXam.getY_ImageAverage(), false);
-		Actor a3 = biXanh.hit(biXam.getX_ImageAverage(), biXam.getY_ImageAverage2(), false);
-		Actor a4 = biXanh.hit(biXam.getX_Image(), biXam.getY_ImageAverage(), false);
-		if ((a1 != null)||(a2 != null)||(a3!= null)||(a4!=null))
+
+	private void checkBiXamAnBiXanh() {
+		Actor a1 = biXanh.hit(biXam.getX_ImageAverage(), biXam.getY(), false);
+		Actor a2 = biXanh.hit(biXam.getX_ImageAverage2(),
+				biXam.getY_ImageAverage(), false);
+		Actor a3 = biXanh.hit(biXam.getX_ImageAverage(),
+				biXam.getY_ImageAverage2(), false);
+		Actor a4 = biXanh.hit(biXam.getX(), biXam.getY_ImageAverage(), false);
+		if ((a1 != null) || (a2 != null) || (a3 != null) || (a4 != null))
 			biXamAnBiXanh();
 	}
-	
-	private void biXamAnBiXanh(){
+
+	private void biXamAnBiXanh() {
 		biXanh.doiViTri();
-		BiDo biDo= new BiDo(this);
-		gBiDo.addActor(biDo);
+		BiDo biDo = new BiDo(this);
+		gBiMau.addActor(biDo);
 		playScreen.getLeftTaskBar().biXamAnBiXanh();
 	}
-	
-	private void checkBiXamTrungBiDo(){
-		Actor a = gBiDo.hit(biXam.getX_ImageAverage(), biXam.getY_ImageAverage(), false);
+
+	private void checkBiXamTrungBiDo() {
+		Actor a = gBiMau.hit(biXam.getX_ImageAverage(),
+				biXam.getY_ImageAverage(), false);
 		if (a != null)
 			biXamTrungBiDo();
 	}
-	
-	private void biXamTrungBiDo(){
+
+	private void biXamTrungBiDo() {
 		biXam.setChay(false);
-		for (Actor a : gBiDo.getChildren())
-			if (a instanceof BiDo){
-				((BiDo)a).setChay(false);
+		for (Actor a : gBiMau.getChildren())
+			if (a instanceof BiDo) {
+				((BiDo) a).setChay(false);
 			}
 		playScreen.getLeftTaskBar().endGame();
 		pauseGame = true;
 		playScreen.showKetQua();
 	}
-	
-	public BiXam getBiXam(){
+
+	public BiXam getBiXam() {
 		return biXam;
+	}
+
+	public Group getGroupBiMau() {
+		return gBiMau;
 	}
 }
