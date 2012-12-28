@@ -5,21 +5,22 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.vn.gombi.gamelogic.GameControl;
 
-public class BottomTaskBar extends Group{
+public class BottomTaskBar extends Group {
 
 	private Image iBottom;
 	private int iLong;
 	private boolean bRemain;
-	
+
 	public BottomTaskBar() {
 		super();
 		iLong = 677;
 		bRemain = false;
 		init();
 	}
-	
-	private void init(){
-		NinePatch ninePatch = new NinePatch(GameControl.getAtlas().findRegion("play/bottom"),8 ,8 ,8 ,8);
+
+	private void init() {
+		NinePatch ninePatch = new NinePatch(GameControl.getAtlas().findRegion(
+				"play/bottom"), 8, 8, 8, 8);
 		iBottom = new Image(ninePatch);
 		iBottom.setX(111);
 		iBottom.setY(10);
@@ -28,12 +29,12 @@ public class BottomTaskBar extends Group{
 		this.addActor(iBottom);
 	}
 
-	private void remainTime(){
-		iLong-=2;
+	private void remainTime() {
+		iLong -= 2;
 		iBottom.setWidth(iLong);
 		iBottom.invalidate();
-		
-		if (iLong < 0){
+
+		if (iLong < 0) {
 			bRemain = false;
 			iLong = 677;
 		}
@@ -46,8 +47,8 @@ public class BottomTaskBar extends Group{
 			remainTime();
 		remainTime();
 	}
-	
-	public void callRemain(){
+
+	public void callRemain() {
 		bRemain = true;
 	}
 }

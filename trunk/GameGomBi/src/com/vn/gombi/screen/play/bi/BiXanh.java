@@ -1,20 +1,20 @@
 package com.vn.gombi.screen.play.bi;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.vn.gombi.gamelogic.GameControl;
 
-public class BiXanh extends BiBase{
+public class BiXanh extends BiBase {
 
 	public BiXanh() {
 		super();
-		image = new Image(GameControl.getAtlas().findRegion("play/bi-xanh"));
+		textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion(
+				"play/bi-xanh"));
+		this.setDrawable();
 		doiViTri();
-		this.addActor(image);
-		
+
 		setXY_Max();
 	}
-	
-	public void doiViTri(){
+
+	public void doiViTri() {
 		randomViTri();
 	}
 }
