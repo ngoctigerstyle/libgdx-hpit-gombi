@@ -30,10 +30,10 @@ public class GroupBi extends Group{
 	public GroupBi(PlayScreen playScreen) {
 		super();
 		this.playScreen = playScreen;
-		this.setX(this.X);
-		this.setY(this.Y);
-		this.setWidth(this.WIDTH);
-		this.setHeight(this.HEIGH);
+		this.setX(GroupBi.X);
+		this.setY(GroupBi.Y);
+		this.setWidth(GroupBi.WIDTH);
+		this.setHeight(GroupBi.HEIGH);
 		
 		pauseGame = false;
 		
