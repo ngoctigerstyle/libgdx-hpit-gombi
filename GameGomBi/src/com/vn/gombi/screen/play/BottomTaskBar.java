@@ -19,6 +19,7 @@ public class BottomTaskBar extends Group {
 	public static int BI_DO_SPEED_INC = 1;
 	public static int BI_DO_SPEED_DES = 2;
 	public static int BI_XAM_SIEU_NHAN = 3;
+	public static int BI_DO_RANDOM_DIRECTION = 4;
 	
 	private int iPower;
 	
@@ -48,7 +49,9 @@ public class BottomTaskBar extends Group {
 		bRemain = true;
 		iLong = 677;
 		Random r = new Random();
-		iPower = r.nextInt(3) + 1;
+//		iPower = r.nextInt(4) + 1;
+		iPower = 3;
+		
 		if (iPower == BI_DO_SPEED_INC){
 			playScreen.getLeftTaskBar().setLabelPower("Fast speed red");
 			playScreen.getGroupBi().incSpeedRed();
@@ -58,6 +61,9 @@ public class BottomTaskBar extends Group {
 		}else if (iPower == BI_XAM_SIEU_NHAN){
 			playScreen.getLeftTaskBar().setLabelPower("Super gray");
 			playScreen.getGroupBi().getBiXam().setSuper(true);
+		}else if (iPower == BI_DO_RANDOM_DIRECTION){
+			playScreen.getLeftTaskBar().setLabelPower("Random move");
+			playScreen.getGroupBi().randomDirectionRed();
 		}
 	}
 	
@@ -65,6 +71,8 @@ public class BottomTaskBar extends Group {
 		playScreen.getLeftTaskBar().resetLabelPower();
 		playScreen.getGroupBi().resetSpeedRed();
 		playScreen.getGroupBi().getBiXam().setSuper(false);
+		if (iPower == 4)
+			playScreen.getGroupBi().randomDirectionRed();
 	}
 
 	/**
@@ -75,10 +83,11 @@ public class BottomTaskBar extends Group {
 		iBottom.setWidth(iLong);
 		iBottom.invalidate();
 		if (iLong < 10) {
+			resetPower();
 			iPower = NONE;
 			bRemain = false;
 			iLong = 677;
-			resetPower();
+			iBottom.setWidth(iLong);
 		}
 	}
 

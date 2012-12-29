@@ -2,7 +2,6 @@ package com.vn.gombi.screen.play.bi;
 
 import java.util.Random;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.screen.PlayScreen;
 import com.vn.gombi.screen.play.GroupBi;
@@ -24,12 +23,12 @@ public class BiDo extends BiBase {
 		this.groupBi = groupBi;
 		randomViTri();
 		setXY_Max();
-		randomPhuong();// chay ngang hay doc
+		randomDirection();// chay ngang hay doc
 		randomTocDo();
 		bHuong = false;// chay toi hay lui
 	}
 
-	public void randomPhuong() {
+	public void randomDirection() {
 		Random r = new Random();
 		bPhuong = r.nextBoolean();
 	}
@@ -40,11 +39,11 @@ public class BiDo extends BiBase {
 	}
 	
 	public void incSpeed(){
-		iSpeed++;
+		iSpeed = iSpeedBackUp + 1;
 	}
 	
 	public void desSpeed(){
-		iSpeed--;
+		iSpeed = iSpeedBackUp - 1;
 	}
 	
 	public void resetSpeed(){

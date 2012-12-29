@@ -2,12 +2,8 @@ package com.vn.gombi.screen.play.bi;
 
 import java.util.Random;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.screen.play.GroupBi;
 
 public class BiBase extends Image {
