@@ -16,7 +16,7 @@ public class GameControl extends Game {
 		atlas = new TextureAtlas(Gdx.files.internal("../GameGomBi-android/assets/MyDataPacker/MoTa.txt"));
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
-		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_PLAY));
+		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
 	}
 
 	@Override
