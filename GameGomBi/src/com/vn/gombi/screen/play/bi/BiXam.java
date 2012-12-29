@@ -130,7 +130,7 @@ public class BiXam extends BiBase {
 		groupBi.getPlayScreen().getLeftTaskBar().biXamAnBiXanh();
 		
 		Random r = new Random();
-		int i = r.nextInt(3);
+		int i = r.nextInt(5);
 		if (i == 0)
 			groupBi.getBiVang().setMyVisible(true);
 	}
