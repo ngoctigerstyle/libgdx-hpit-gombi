@@ -16,8 +16,8 @@ public class GroupBi extends Group {
 	public static int X = 125;
 	public static int Y = 40;
 
-	public static int WIDTH = 600;
-	public static int HEIGH = 400;
+	public static int WIDTH = 633;
+	public static int HEIGH = 393;
 
 	private Group gBiMau;
 	private BiXam biXam;
@@ -54,7 +54,7 @@ public class GroupBi extends Group {
 		case 0:
 			biXam = new BiXam(this);
 			this.addActor(biXam);
-			Gdx.app.log("sdf", "khoi tao xam");
+//			Gdx.app.log("sdf", "khoi tao xam");
 			break;
 		case 1:
 			biVang = new BiVang();

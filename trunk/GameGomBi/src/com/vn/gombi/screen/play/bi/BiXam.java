@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.PlayScreen;
 import com.vn.gombi.screen.play.GroupBi;
 
@@ -66,8 +67,6 @@ public class BiXam extends BiBase {
 		if (yTemp > y_max)
 			yTemp = y_max;
 		viTriCuoi.set(xTemp, yTemp);
-		// Gdx.app.log(String.valueOf(viTriCuoi.x),
-		// String.valueOf(viTriCuoi.y));
 	}
 
 	private void diChuyen() {
@@ -109,6 +108,7 @@ public class BiXam extends BiBase {
 
 	private void chamBiDo(BiDo biDo) {
 		Gdx.app.log("sdf", "do");
+		SoundManager.playSound(SoundManager.SOUND_BOOM);
 		if (bSuper == false) {
 			this.setChay(false);
 			for (Actor a : groupBi.getGroupBiMau().getChildren())
@@ -124,6 +124,7 @@ public class BiXam extends BiBase {
 
 	private void chamBiXanh(BiXanh biXanh) {
 		Gdx.app.log("sdf", "xanh");
+		SoundManager.playSound(SoundManager.SOUND_EAT);
 		biXanh.doiViTri();
 		BiDo biDo = new BiDo(groupBi);
 		groupBi.getGroupBiMau().addActor(biDo);

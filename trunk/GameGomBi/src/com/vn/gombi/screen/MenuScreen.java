@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.SoundManager;
 
 public class MenuScreen extends BaseScreen {
 
@@ -25,59 +26,45 @@ public class MenuScreen extends BaseScreen {
 		menuBall.setY(270);
 		stage.addActor(menuBall);
 
-		TextButton tB1 = new TextButton("New game", GameControl.getMySkin());
-		tB1.setX(280);
-		tB1.setY(180);
-		tB1.setWidth(200);
-		tB1.setHeight(70);
-		stage.addActor(tB1);
+		TextButton tnewGame = new TextButton("New game", GameControl.getMySkin());
+		tnewGame.setX(280);
+		tnewGame.setY(180);
+		tnewGame.setWidth(200);
+		tnewGame.setHeight(70);
+		stage.addActor(tnewGame);
 
-		TextButton tB2 = new TextButton("Quit game", GameControl.getMySkin());
-		tB2.setX(280);
-		tB2.setY(100);
-		tB2.setWidth(200);
-		tB2.setHeight(70);
-		stage.addActor(tB2);
+		TextButton tquitGame = new TextButton("Quit game", GameControl.getMySkin());
+		tquitGame.setX(280);
+		tquitGame.setY(100);
+		tquitGame.setWidth(200);
+		tquitGame.setHeight(70);
+		stage.addActor(tquitGame);
 
-		// MoveToAction move = new MoveToAction();
-		// move.setX(400);
-		// move.setY(100);
-		// move.setDuration(2f);
-		// tB1.addAction(move);
-
-		tB1.addListener(new ClickListener() {
+		tnewGame.addListener(new ClickListener() {
 
 			@Override
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				SoundManager.playSound(SoundManager.SOUND_SELECT);
 				GameControl.getManagerScreen().createScreen(
 						ManagerScreen.SCREEN_PLAY);
 			}
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y,
-					int pointer, int button) {
-				return super.touchDown(event, x, y, pointer, button);
-			}
 		});
 
-		tB2.addListener(new ClickListener() {
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y,
-					int pointer, int button) {
-				return super.touchDown(event, x, y, pointer, button);
-			}
+		tquitGame.addListener(new ClickListener() {
 
 			@Override
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				SoundManager.playSound(SoundManager.SOUND_SELECT);
 				Gdx.app.exit();
 			}
 
 		});
+		
+//		GameControl.getSoundManager().playSound(SoundManager.SOUND_1);
 	}
 
 	@Override

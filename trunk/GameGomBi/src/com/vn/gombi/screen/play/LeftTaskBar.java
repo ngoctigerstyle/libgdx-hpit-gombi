@@ -2,9 +2,14 @@ package com.vn.gombi.screen.play;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.SoundManager;
+import com.vn.gombi.screen.ManagerScreen;
 
 public class LeftTaskBar extends Group {
 
@@ -21,7 +26,8 @@ public class LeftTaskBar extends Group {
 	public LeftTaskBar() {
 		super();
 		khoiTaoNumber();
-		khoiTaoLabel();
+		initLabel();
+		initTextButton();
 	}
 
 	private void khoiTaoNumber() {
@@ -50,7 +56,7 @@ public class LeftTaskBar extends Group {
 		lPower2.remove();
 	}
 
-	private void khoiTaoLabel() {
+	private void initLabel() {
 		Image imgLogo = new Image(GameControl.getAtlas().findRegion(
 				"menu/ball-text"));
 		imgLogo.setX(15);
@@ -94,6 +100,26 @@ public class LeftTaskBar extends Group {
 		lPower2.setX(lScore.getX());
 		lPower2.setY(lPower.getY() - 20);
 		this.addActor(lPower2);
+	}
+	
+	private void initTextButton(){
+		TextButton tbBack = new TextButton("back", GameControl.getMySkin());
+		tbBack.setX(lScore.getX());
+		tbBack.setY(10);
+		tbBack.setWidth(100);
+		tbBack.setHeight(40);
+		this.addActor(tbBack);
+		
+		tbBack.addListener(new ClickListener(){
+
+			@Override
+			public void touchUp(InputEvent arg0, float arg1, float arg2,
+					int arg3, int arg4) {
+				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				SoundManager.playSound(SoundManager.SOUND_SELECT);
+				GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
+			}
+		});
 	}
 	
 	public void setLabelPower(String sPower){

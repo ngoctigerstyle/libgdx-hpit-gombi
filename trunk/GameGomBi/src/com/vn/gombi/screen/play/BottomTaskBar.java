@@ -62,7 +62,7 @@ public class BottomTaskBar extends Group {
 			playScreen.getLeftTaskBar().setLabelPower("Super gray");
 			playScreen.getGroupBi().getBiXam().setSuper(true);
 		}else if (iPower == BI_DO_RANDOM_DIRECTION){
-			playScreen.getLeftTaskBar().setLabelPower("Random move");
+			playScreen.getLeftTaskBar().setLabelPower("Red change move");
 			playScreen.getGroupBi().randomDirectionRed();
 		}
 	}
