@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.ManagerScreen;
 
 public class BangKetQua extends Group {
@@ -102,6 +103,7 @@ public class BangKetQua extends Group {
 			@Override
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
+				SoundManager.playSound(SoundManager.SOUND_SELECT);
 				GameControl.getManagerScreen().createScreen(
 						ManagerScreen.SCREEN_PLAY);
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
@@ -114,6 +116,7 @@ public class BangKetQua extends Group {
 			@Override
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
+				SoundManager.playSound(SoundManager.SOUND_SELECT);
 				GameControl.getManagerScreen().createScreen(
 						ManagerScreen.SCREEN_MENU);
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);

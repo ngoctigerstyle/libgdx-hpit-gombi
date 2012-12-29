@@ -3,6 +3,7 @@ package com.vn.gombi.screen.play.bi;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -103,12 +104,15 @@ public class BiXam extends BiBase {
 
 	private void chamBiVang(BiVang biVang) {
 		groupBi.getBiVang().setMyVisible(false);
+		SoundManager.playSound(SoundManager.SOUND_EAT);
+		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
 		groupBi.getPlayScreen().getBottomTaskBar().putPower();
 	}
 
 	private void chamBiDo(BiDo biDo) {
 		Gdx.app.log("sdf", "do");
 		SoundManager.playSound(SoundManager.SOUND_BOOM);
+		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
 		if (bSuper == false) {
 			this.setChay(false);
 			for (Actor a : groupBi.getGroupBiMau().getChildren())
@@ -125,6 +129,7 @@ public class BiXam extends BiBase {
 	private void chamBiXanh(BiXanh biXanh) {
 		Gdx.app.log("sdf", "xanh");
 		SoundManager.playSound(SoundManager.SOUND_EAT);
+		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
 		biXanh.doiViTri();
 		BiDo biDo = new BiDo(groupBi);
 		groupBi.getGroupBiMau().addActor(biDo);

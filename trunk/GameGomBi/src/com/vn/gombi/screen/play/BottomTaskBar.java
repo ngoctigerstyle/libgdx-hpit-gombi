@@ -53,16 +53,16 @@ public class BottomTaskBar extends Group {
 //		iPower = 3;
 		
 		if (iPower == BI_DO_SPEED_INC){
-			playScreen.getLeftTaskBar().setLabelPower("Fast speed red");
+			playScreen.getLeftTaskBar().setLabelPower("Red fast");
 			playScreen.getGroupBi().incSpeedRed();
 		}else if (iPower == BI_DO_SPEED_DES){
-			playScreen.getLeftTaskBar().setLabelPower("Low speed red");
+			playScreen.getLeftTaskBar().setLabelPower("Red slow");
 			playScreen.getGroupBi().desSpeedRed();
 		}else if (iPower == BI_XAM_SIEU_NHAN){
 			playScreen.getLeftTaskBar().setLabelPower("Super gray");
 			playScreen.getGroupBi().getBiXam().setSuper(true);
 		}else if (iPower == BI_DO_RANDOM_DIRECTION){
-			playScreen.getLeftTaskBar().setLabelPower("Red change move");
+			playScreen.getLeftTaskBar().setLabelPower("Red change");
 			playScreen.getGroupBi().randomDirectionRed();
 		}
 	}
