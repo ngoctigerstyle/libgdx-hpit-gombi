@@ -22,6 +22,7 @@ public class BiXam extends BiBase {
 	private Vector2 viTriCuoi;
 	private int iTocDo;
 	private boolean bSuper;
+	private int yHand;
 
 	public BiXam(GroupBi groupBi) {
 		super();
@@ -35,6 +36,7 @@ public class BiXam extends BiBase {
 		dieuKhien();
 		iTocDo = 4;
 		bSuper = false;
+		yHand = 50;
 	}
 
 	public void dieuKhien() {
@@ -42,14 +44,14 @@ public class BiXam extends BiBase {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				setViTriCuoi(x, y);
+				setViTriCuoi(x, y + yHand);
 				return super.touchDown(event, x, y, pointer, button);
 			}
 
 			@Override
 			public void touchDragged(InputEvent event, float x, float y,
 					int pointer) {
-				setViTriCuoi(x, y);
+				setViTriCuoi(x, y + yHand);
 				super.touchDragged(event, x, y, pointer);
 			}
 		};
@@ -110,9 +112,10 @@ public class BiXam extends BiBase {
 	}
 
 	private void chamBiDo(BiDo biDo) {
-		Gdx.app.log("sdf", "do");
+//		Gdx.app.log("sdf", "do");
 		SoundManager.playSound(SoundManager.SOUND_BOOM);
 		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
+		groupBi.getBiXam().setVisible(false);
 		if (bSuper == false) {
 			this.setChay(false);
 			for (Actor a : groupBi.getGroupBiMau().getChildren())
@@ -127,7 +130,7 @@ public class BiXam extends BiBase {
 	}
 
 	private void chamBiXanh(BiXanh biXanh) {
-		Gdx.app.log("sdf", "xanh");
+//		Gdx.app.log("sdf", "xanh");
 		SoundManager.playSound(SoundManager.SOUND_EAT);
 		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
 		biXanh.doiViTri();

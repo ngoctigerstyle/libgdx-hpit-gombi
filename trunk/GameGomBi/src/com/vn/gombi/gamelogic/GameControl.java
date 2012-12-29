@@ -3,6 +3,7 @@ package com.vn.gombi.gamelogic;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.vn.gombi.constant.Constant;
 import com.vn.gombi.helper.MySkin;
 import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.ManagerScreen;
@@ -13,13 +14,17 @@ public class GameControl extends Game {
 	private static TextureAtlas atlas;
 	@SuppressWarnings("unused")
 	private SoundManager soundManager;
+	private Constant constant;
 
 	@Override
 	public void create() {
-		atlas = new TextureAtlas(Gdx.files.internal("../GameGomBi-android/assets/MyDataPacker/MoTa.txt"));
+		constant = new Constant();
+		atlas = new TextureAtlas(Gdx.files.internal(
+				Constant.PATH_TEXTUREPACKER));
+		
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
-		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_PLAY));
+		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
 		soundManager = new SoundManager();
 	}
 
