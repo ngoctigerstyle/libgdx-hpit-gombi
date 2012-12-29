@@ -1,6 +1,8 @@
 package com.vn.gombi.screen.play;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.vn.gombi.screen.PlayScreen;
@@ -13,6 +15,8 @@ public class GroupBi extends Group {
 
 	private PlayScreen playScreen;
 
+	private SpriteBatch sb;
+	
 	public static int X = 125;
 	public static int Y = 40;
 
@@ -23,6 +27,7 @@ public class GroupBi extends Group {
 	private BiXam biXam;
 	private BiXanh biXanh;
 	private BiVang biVang;
+	private ParticleEffect particleEffect;
 
 	public GroupBi(PlayScreen playScreen) {
 		super();
@@ -31,6 +36,10 @@ public class GroupBi extends Group {
 		this.setY(GroupBi.Y);
 		this.setWidth(GroupBi.WIDTH);
 		this.setHeight(GroupBi.HEIGH);
+		this.sb = playScreen.getSpriteBatch();
+		
+		particleEffect = new ParticleEffect();
+		particleEffect.load(Gdx.files.internal("MyParticle/lua2.p"), Gdx.files.internal("MyParticle"));
 
 		PlayScreen.PAUSE_GAME = false;
 
@@ -99,9 +108,17 @@ public class GroupBi extends Group {
 				((BiDo) a).randomDirection();
 	}
 	
+	public void startParticle(float x, float y){
+		particleEffect.setPosition(x + X, y + Y);
+		particleEffect.start();
+	}
+	
 	@Override
 	public void act(float arg0) {
 		super.act(arg0);
+		sb.begin();
+		particleEffect.draw(sb, arg0);
+		sb.end();
 	}
 
 	public BiXam getBiXam() {

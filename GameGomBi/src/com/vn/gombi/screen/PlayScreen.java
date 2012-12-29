@@ -1,5 +1,6 @@
 package com.vn.gombi.screen;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.vn.gombi.screen.play.BangKetQua;
 import com.vn.gombi.screen.play.BottomTaskBar;
 import com.vn.gombi.screen.play.GroupBi;
@@ -55,6 +56,10 @@ public class PlayScreen extends BaseScreen {
 	
 	public BottomTaskBar getBottomTaskBar(){
 		return bottomTaskBar;
+	}
+	
+	public SpriteBatch getSpriteBatch(){
+		return sb;
 	}
 
 	@Override
