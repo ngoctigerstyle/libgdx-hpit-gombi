@@ -54,6 +54,7 @@ public class GroupBi extends Group {
 		case 0:
 			biXam = new BiXam(this);
 			this.addActor(biXam);
+			Gdx.app.log("sdf", "khoi tao xam");
 			break;
 		case 1:
 			biVang = new BiVang();

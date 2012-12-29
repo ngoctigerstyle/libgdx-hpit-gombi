@@ -49,8 +49,8 @@ public class BottomTaskBar extends Group {
 		bRemain = true;
 		iLong = 677;
 		Random r = new Random();
-//		iPower = r.nextInt(4) + 1;
-		iPower = 3;
+		iPower = r.nextInt(4) + 1;
+//		iPower = 3;
 		
 		if (iPower == BI_DO_SPEED_INC){
 			playScreen.getLeftTaskBar().setLabelPower("Fast speed red");
