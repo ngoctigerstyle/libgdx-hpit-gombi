@@ -7,7 +7,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.screen.PlayScreen;
@@ -25,8 +24,7 @@ public class BiXam extends BiBase {
 	public BiXam(GroupBi groupBi) {
 		super();
 		this.groupBi = groupBi;
-		textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion(
-				"play/bi-xam"));
+		textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion("play/bi-xam"));
 		this.setDrawable();
 		this.setX(X_DEFAULT);
 		this.setY(Y_DEFAULT);
@@ -85,6 +83,10 @@ public class BiXam extends BiBase {
 
 	public void setSuper(boolean bSuper) {
 		this.bSuper = bSuper;
+		if (bSuper)
+			textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion("play/bi-xam-super"));
+		else
+			textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion("play/bi-xam"));
 	}
 
 	private void checkCollision(Group gBiMau) {
@@ -101,6 +103,7 @@ public class BiXam extends BiBase {
 	}
 
 	private void chamBiVang(BiVang biVang) {
+		groupBi.getBiVang().setMyVisible(false);
 		groupBi.getPlayScreen().getBottomTaskBar().putPower();
 	}
 
@@ -129,7 +132,7 @@ public class BiXam extends BiBase {
 		Random r = new Random();
 		int i = r.nextInt(3);
 		if (i == 0)
-			groupBi.khoiTaoBi(GroupBi.BI_VANG);
+			groupBi.getBiVang().setMyVisible(true);
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package com.vn.gombi.screen.play.bi;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.vn.gombi.gamelogic.GameControl;
 
 public class BiVang extends BiBase {
@@ -11,17 +9,17 @@ public class BiVang extends BiBase {
 		textureRegionDrawable.setRegion(GameControl.getAtlas().findRegion(
 				"play/bi-vang"));
 		setDrawable();
-		this.setVisible(true);
+		this.setVisible(false);
 		randomViTri();
 		setXY_Max();
 	}
 
-	public void biMoi() {
-		randomViTri();
-		this.setVisible(true);
-	}
-
-	private void biXamChamBiVang() {
-
+	public void setMyVisible(boolean bVisible) {
+		if (bVisible){
+			randomViTri();
+			this.setVisible(true);
+		}else if (bVisible == false){
+			this.setVisible(false);
+		}
 	}
 }

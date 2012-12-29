@@ -1,8 +1,5 @@
 package com.vn.gombi.screen;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.screen.play.bi.BiVang;
 
 public class TestScreen extends BaseScreen {

@@ -1,9 +1,8 @@
 package com.vn.gombi.screen.play;
 
-import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.screen.PlayScreen;
 import com.vn.gombi.screen.play.bi.BiDo;
 import com.vn.gombi.screen.play.bi.BiVang;
@@ -38,7 +37,7 @@ public class GroupBi extends Group {
 		gBiMau = new Group();
 		this.addActor(gBiMau);
 
-//		khoiTaoBi(BI_VANG);
+		khoiTaoBi(BI_VANG);
 		khoiTaoBi(BI_XANH);
 		khoiTaoBi(BI_XAM);
 		khoiTaoBi(BI_DO);
@@ -57,7 +56,7 @@ public class GroupBi extends Group {
 			this.addActor(biXam);
 			break;
 		case 1:
-			BiVang biVang = new BiVang();
+			biVang = new BiVang();
 			gBiMau.addActor(biVang);
 			break;
 		case 2:
@@ -72,21 +71,31 @@ public class GroupBi extends Group {
 	}
 
 	public void incSpeedRed(){
-		for (Actor a : this.getChildren())
-			if (a instanceof BiDo)
+		for (Actor a : gBiMau.getChildren())
+			if (a instanceof BiDo){
+				Gdx.app.log("bi do", "tang toc");
 				((BiDo) a).incSpeed();
+			}
 	}
 	
 	public void desSpeedRed(){
-		for (Actor a : this.getChildren())
-			if (a instanceof BiDo)
+		for (Actor a : gBiMau.getChildren())
+			if (a instanceof BiDo){
+				Gdx.app.log("bi do", "giam toc");
 				((BiDo) a).desSpeed();
+			}
 	}
 	
 	public void resetSpeedRed(){
-		for (Actor a : this.getChildren())
+		for (Actor a : gBiMau.getChildren())
 			if (a instanceof BiDo)
 				((BiDo) a).resetSpeed();
+	}
+	
+	public void randomDirectionRed(){
+		for (Actor a : gBiMau.getChildren())
+			if (a instanceof BiDo)
+				((BiDo) a).randomDirection();
 	}
 	
 	@Override
@@ -96,6 +105,10 @@ public class GroupBi extends Group {
 
 	public BiXam getBiXam() {
 		return biXam;
+	}
+	
+	public BiVang getBiVang(){
+		return biVang;
 	}
 
 	public Group getGroupBiMau() {
