@@ -1,5 +1,10 @@
 package com.vn.gombi.constant;
 
+/**
+ * Truoc khi run game, phai kiem tra platform thuoc loai android hay desktop.
+ * @author phuongnh
+ *
+ */
 public class Constant {
 	private static int PLATFORM = 0;
 	

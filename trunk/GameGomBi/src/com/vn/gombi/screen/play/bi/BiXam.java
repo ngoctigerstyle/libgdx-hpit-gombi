@@ -51,7 +51,7 @@ public class BiXam extends BiBase {
 			@Override
 			public void touchDragged(InputEvent event, float x, float y,
 					int pointer) {
-				setViTriCuoi(x, y + yHand);
+				setViTriCuoi(x - 5, y + yHand);
 				super.touchDragged(event, x, y, pointer);
 			}
 		};
@@ -94,12 +94,34 @@ public class BiXam extends BiBase {
 	private void checkCollision(Group gBiMau) {
 		Actor a = gBiMau.hit(this.getX_ImageAverage(),
 				this.getY_ImageAverage(), false);
-		if (a != null) {
-			if (a instanceof BiVang)
-				chamBiVang((BiVang) a);
-			else if (a instanceof BiXanh)
-				chamBiXanh((BiXanh) a);
-			else if (a instanceof BiDo)
+		Actor a1 = gBiMau.hit(this.getX(),
+				this.getY(), false);
+		Actor a2 = gBiMau.hit(this.getX_ImageAverage2(),
+				this.getY_ImageAverage(), false);
+		Actor a3 = gBiMau.hit(this.getX_ImageAverage(),
+				this.getY_ImageAverage2(), false);
+		Actor a4 = gBiMau.hit(this.getX(),
+				this.getY_ImageAverage(), false);
+		
+		Actor aTemp = null;
+		if (a1 != null)
+			aTemp = a1;
+		if (a2 != null)
+			aTemp = a2;
+		if (a3 != null)
+			aTemp = a3;
+		if (a4 != null)
+			aTemp = a4;
+		
+		if (aTemp != null) {
+			if (aTemp instanceof BiVang)
+				chamBiVang((BiVang) aTemp);
+			else if (aTemp instanceof BiXanh)
+				chamBiXanh((BiXanh) aTemp);
+		}
+		
+		if (a != null){
+			if (a instanceof BiDo)
 				chamBiDo((BiDo) a);
 		}
 	}
@@ -107,7 +129,7 @@ public class BiXam extends BiBase {
 	private void chamBiVang(BiVang biVang) {
 		groupBi.getBiVang().setMyVisible(false);
 		SoundManager.playSound(SoundManager.SOUND_EAT);
-		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
+		groupBi.startParticle(biVang.getX_ImageAverage(), biVang.getY_ImageAverage());
 		groupBi.getPlayScreen().getBottomTaskBar().putPower();
 	}
 
@@ -115,9 +137,9 @@ public class BiXam extends BiBase {
 //		Gdx.app.log("sdf", "do");
 		SoundManager.playSound(SoundManager.SOUND_BOOM);
 		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
-		groupBi.getBiXam().setVisible(false);
 		if (bSuper == false) {
 			this.setChay(false);
+			groupBi.getBiXam().setVisible(false);
 			for (Actor a : groupBi.getGroupBiMau().getChildren())
 				((BiBase) a).setChay(false);
 			groupBi.getPlayScreen().getLeftTaskBar().endGame();
@@ -132,14 +154,14 @@ public class BiXam extends BiBase {
 	private void chamBiXanh(BiXanh biXanh) {
 //		Gdx.app.log("sdf", "xanh");
 		SoundManager.playSound(SoundManager.SOUND_EAT);
-		groupBi.startParticle(getX_ImageAverage(), getY_ImageAverage());
+		groupBi.startParticle(biXanh.getX_ImageAverage(), biXanh.getY_ImageAverage());
 		biXanh.doiViTri();
 		BiDo biDo = new BiDo(groupBi);
 		groupBi.getGroupBiMau().addActor(biDo);
 		groupBi.getPlayScreen().getLeftTaskBar().biXamAnBiXanh();
 		
 		Random r = new Random();
-		int i = r.nextInt(5);
+		int i = r.nextInt(3);
 		if (i == 0)
 			groupBi.getBiVang().setMyVisible(true);
 	}
