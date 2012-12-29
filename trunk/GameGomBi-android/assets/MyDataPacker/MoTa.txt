@@ -1,0 +1,94 @@
+
+MoTa.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+menu/background
+  rotate: false
+  xy: 1, 157
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+menu/ball-text
+  rotate: false
+  xy: 1, 1
+  size: 391, 154
+  orig: 391, 154
+  offset: 0, 0
+  index: -1
+
+MoTa2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+play/khung
+  rotate: false
+  xy: 1, 4
+  size: 238, 123
+  orig: 238, 123
+  offset: 0, 0
+  index: -1
+play/bi-xam-super
+  rotate: false
+  xy: 241, 95
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+play/bi-vang
+  rotate: false
+  xy: 241, 67
+  size: 23, 26
+  orig: 23, 26
+  offset: 0, 0
+  index: -1
+play/bi-xam
+  rotate: false
+  xy: 275, 101
+  size: 23, 26
+  orig: 23, 26
+  offset: 0, 0
+  index: -1
+play/ketqua-khung-2
+  rotate: false
+  xy: 300, 103
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+play/ketqua-khung
+  rotate: false
+  xy: 326, 103
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+play/bottom
+  rotate: false
+  xy: 241, 44
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+play/bi-do
+  rotate: false
+  xy: 352, 108
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+play/bi-xanh
+  rotate: false
+  xy: 241, 24
+  size: 17, 18
+  orig: 17, 18
+  offset: 0, 0
+  index: -1
+play/ketqua-xam-1
+  rotate: false
+  xy: 1, 1
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
