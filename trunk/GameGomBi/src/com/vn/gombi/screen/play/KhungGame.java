@@ -13,7 +13,7 @@ public class KhungGame extends Group {
 		super();
 
 		NinePatch np = new NinePatch(GameControl.getAtlas().findRegion(
-				"play/khung"), 180, 50, 70, 50);
+				"play/khung",2), 180, 50, 70, 69);
 
 		imgKhung = new Image(np);
 		imgKhung.setX(0);

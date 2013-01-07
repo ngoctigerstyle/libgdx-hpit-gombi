@@ -18,10 +18,10 @@ public class GroupBi extends Group {
 	private SpriteBatch sb;
 	
 	public static int X = 125;
-	public static int Y = 40;
+	public static int Y = 59;
 
 	public static int WIDTH = 633;
-	public static int HEIGH = 393;
+	public static int HEIGH = 374;
 
 	private Group gBiMau;
 	private BiXam biXam;
