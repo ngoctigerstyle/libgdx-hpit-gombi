@@ -16,6 +16,7 @@ public class MenuScreen extends BaseScreen {
 	@Override
 	public void show() {
 		super.show();
+//		resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		imgBack = new Image(new TextureRegion(GameControl.getAtlas()
 				.findRegion("menu/background")));
 		stage.addActor(imgBack);

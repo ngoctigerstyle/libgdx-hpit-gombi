@@ -36,7 +36,7 @@ public class BiXam extends BiBase {
 		dieuKhien();
 		iTocDo = 4;
 		bSuper = false;
-		yHand = 50;
+		yHand = 60;
 	}
 
 	public void dieuKhien() {
