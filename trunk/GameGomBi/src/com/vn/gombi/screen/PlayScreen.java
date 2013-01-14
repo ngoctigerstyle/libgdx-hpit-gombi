@@ -1,6 +1,7 @@
 package com.vn.gombi.screen;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.play.BangKetQua;
 import com.vn.gombi.screen.play.BottomTaskBar;
 import com.vn.gombi.screen.play.GroupBi;
@@ -38,6 +39,7 @@ public class PlayScreen extends BaseScreen {
 		bottomTaskBar = new BottomTaskBar(this);
 		stage.addActor(bottomTaskBar);
 
+		SoundManager.playMusic(SoundManager.MUSIC_PLAY);
 	}
 
 	public void showKetQua() {

@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.ManagerScreen;
 
@@ -33,6 +34,7 @@ public class LeftTaskBar extends Group {
 	private void khoiTaoNumber() {
 		iScore = 0;
 		iColection = 0;
+		this.setX(690);
 	}
 
 	public int getScore() {
@@ -103,7 +105,7 @@ public class LeftTaskBar extends Group {
 	}
 	
 	private void initTextButton(){
-		TextButton tbBack = new TextButton("back", GameControl.getMySkin());
+		final TextButton tbBack = new TextButton("back", GameControl.getMySkin());
 		tbBack.setX(lScore.getX());
 		tbBack.setY(10);
 		tbBack.setWidth(100);
@@ -116,8 +118,10 @@ public class LeftTaskBar extends Group {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				SoundManager.playSound(SoundManager.SOUND_SELECT);
-				GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
+				if (MyInput.wrapButton(tbBack)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
+					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
+				}
 			}
 		});
 	}
@@ -138,6 +142,11 @@ public class LeftTaskBar extends Group {
 	private void incScore() {
 		iScore += 5;
 		lScore2.setText(String.valueOf(iScore));
+	}
+	
+	public void incScore(int iScore) {
+		this.iScore += iScore;
+		lScore2.setText(String.valueOf(this.iScore));
 	}
 
 	private void incCollection() {

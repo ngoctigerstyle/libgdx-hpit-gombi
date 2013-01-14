@@ -22,7 +22,7 @@ public class BiXam extends BiBase {
 	private Vector2 viTriCuoi;
 	private int iTocDo;
 	private boolean bSuper;
-	private int yHand;
+	private int xHand, yHand;
 
 	public BiXam(GroupBi groupBi) {
 		super();
@@ -36,6 +36,7 @@ public class BiXam extends BiBase {
 		dieuKhien();
 		iTocDo = 4;
 		bSuper = false;
+		xHand = 120;
 		yHand = 60;
 	}
 
@@ -44,14 +45,14 @@ public class BiXam extends BiBase {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
-				setViTriCuoi(x, y + yHand);
+				setViTriCuoi(x - xHand, y + yHand);
 				return super.touchDown(event, x, y, pointer, button);
 			}
 
 			@Override
 			public void touchDragged(InputEvent event, float x, float y,
 					int pointer) {
-				setViTriCuoi(x - 5, y + yHand);
+				setViTriCuoi(x - xHand - 5, y + yHand);
 				super.touchDragged(event, x, y, pointer);
 			}
 		};

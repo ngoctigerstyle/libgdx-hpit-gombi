@@ -6,7 +6,7 @@ package com.vn.gombi.constant;
  *
  */
 public class Constant {
-	private static int PLATFORM = 1;
+	private static int PLATFORM = 0;
 	
 	private static final int DESKTOP = 0;
 	private static final int ANDROID = 1;

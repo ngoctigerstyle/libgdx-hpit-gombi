@@ -38,7 +38,7 @@ public class BottomTaskBar extends Group {
 		NinePatch ninePatch = new NinePatch(GameControl.getAtlas().findRegion(
 				"play/bottom"), 8, 8, 8, 8);
 		iBottom = new Image(ninePatch);
-		iBottom.setX(111);
+		iBottom.setX(10);
 		iBottom.setY(10);
 		iBottom.setWidth(iLong);
 		iBottom.setHeight(15);
@@ -51,6 +51,8 @@ public class BottomTaskBar extends Group {
 		Random r = new Random();
 		iPower = r.nextInt(4) + 1;
 //		iPower = 3;
+		
+		playScreen.getLeftTaskBar().incScore(10);
 		
 		if (iPower == BI_DO_SPEED_INC){
 			playScreen.getLeftTaskBar().setLabelPower("Red fast");
