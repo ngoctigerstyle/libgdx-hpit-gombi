@@ -1,12 +1,14 @@
 package com.vn.gombi.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.gamelogic.GameControl;
+import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.helper.SoundManager;
 
 public class MenuScreen extends BaseScreen {
@@ -27,14 +29,14 @@ public class MenuScreen extends BaseScreen {
 		menuBall.setY(270);
 		stage.addActor(menuBall);
 
-		TextButton tnewGame = new TextButton("New game", GameControl.getMySkin());
+		final TextButton tnewGame = new TextButton("New game", GameControl.getMySkin());
 		tnewGame.setX(280);
 		tnewGame.setY(180);
 		tnewGame.setWidth(200);
 		tnewGame.setHeight(70);
 		stage.addActor(tnewGame);
 
-		TextButton tquitGame = new TextButton("Quit game", GameControl.getMySkin());
+		final TextButton tquitGame = new TextButton("Quit game", GameControl.getMySkin());
 		tquitGame.setX(280);
 		tquitGame.setY(100);
 		tquitGame.setWidth(200);
@@ -47,9 +49,11 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				SoundManager.playSound(SoundManager.SOUND_SELECT);
-				GameControl.getManagerScreen().createScreen(
-						ManagerScreen.SCREEN_PLAY);
+				
+				if (MyInput.wrapButton(tnewGame)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
+					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
+				}
 			}
 		});
 
@@ -59,13 +63,15 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				SoundManager.playSound(SoundManager.SOUND_SELECT);
-				Gdx.app.exit();
+				if (MyInput.wrapButton(tquitGame)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
+					Gdx.app.exit();
+				}
 			}
-
 		});
 		
 //		GameControl.getSoundManager().playSound(SoundManager.SOUND_1);
+		SoundManager.playMusic(SoundManager.MUSIC_MENU);
 	}
 
 	@Override

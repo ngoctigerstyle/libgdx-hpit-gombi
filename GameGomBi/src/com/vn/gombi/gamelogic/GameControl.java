@@ -24,8 +24,8 @@ public class GameControl extends Game {
 		
 		mySkin = new MySkin();
 		managerScreen = new ManagerScreen();
-		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
 		soundManager = new SoundManager();
+		this.setScreen(managerScreen.createScreen(ManagerScreen.SCREEN_MENU));
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public class GroupBi extends Group {
 
 	private SpriteBatch sb;
 	
-	public static int X = 125;
+	public static int X = 25;
 	public static int Y = 59;
 
 	public static int WIDTH = 633;
@@ -83,7 +83,7 @@ public class GroupBi extends Group {
 	public void incSpeedRed(){
 		for (Actor a : gBiMau.getChildren())
 			if (a instanceof BiDo){
-				Gdx.app.log("bi do", "tang toc");
+//				Gdx.app.log("bi do", "tang toc");
 				((BiDo) a).incSpeed();
 			}
 	}

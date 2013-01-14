@@ -10,8 +10,8 @@ public class BiDo extends BiBase {
 
 	private boolean bHuong;
 	private boolean bPhuong;
-	private int iSpeed = 2;
-	private int iSpeedBackUp = iSpeed;
+	private float iSpeed = 3;
+	private float iSpeedBackUp = iSpeed;
 
 	private GroupBi groupBi;
 
@@ -36,14 +36,15 @@ public class BiDo extends BiBase {
 	public void randomTocDo() {
 		Random r = new Random();
 		iSpeed = r.nextInt(3) + 1;
+		iSpeedBackUp = iSpeed;
 	}
 	
 	public void incSpeed(){
-		iSpeed = iSpeedBackUp + 1;
+		iSpeed = iSpeedBackUp * 2;
 	}
 	
 	public void desSpeed(){
-		iSpeed = iSpeedBackUp - 1;
+		iSpeed = iSpeedBackUp / 4;
 	}
 	
 	public void resetSpeed(){
