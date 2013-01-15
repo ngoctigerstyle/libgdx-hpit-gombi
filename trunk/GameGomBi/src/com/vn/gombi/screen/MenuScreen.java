@@ -52,7 +52,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (MyInput.wrapButton(tbTouch)){
+				if (tbTouch.isOver()){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Constant.GAME_STYLE = Constant.TOUCH;
 					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
@@ -73,7 +73,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (MyInput.wrapButton(tbAccelerometer)){
+				if (tbAccelerometer.isOver()){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Constant.GAME_STYLE = Constant.ACCELEROMETER;
 					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
@@ -103,8 +103,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				
-				if (MyInput.wrapButton(tnewGame)){
+				if(tnewGame.isOver()){
 					tnewGame.setVisible(false);
 					tbTouch.setVisible(true);
 					tbAccelerometer.setVisible(true);
@@ -118,7 +117,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (MyInput.wrapButton(tquitGame)){
+				if (tquitGame.isOver()){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Gdx.app.exit();
 				}
@@ -130,6 +129,8 @@ public class MenuScreen extends BaseScreen {
 	public void render(float arg0) {
 		super.render(arg0);
 		// imgBack.setX(imgBack.getX()+5);
+		if (tnewGame.isOver())
+			Gdx.app.log("sdf", "sdfs");
 	}
 
 	@Override

@@ -45,7 +45,7 @@ public class BaseScreen implements Screen{
 
 	@Override
 	public void resize(int arg0, int arg1) {
-		stage.setViewport(arg0, arg1, true);
+//		stage.setViewport(arg0, arg1, true);
 	}
 
 	@Override

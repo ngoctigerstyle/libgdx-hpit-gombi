@@ -3,6 +3,7 @@ package com.vn.gombi.helper;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class MyInput {
@@ -23,14 +24,15 @@ public class MyInput {
 	
 	public static boolean wrapButton(TextButton tB){
 		Vector2 v2 = new Vector2();
-		tB.localToStageCoordinates(v2);
-//		float xButton = tB.getX();
-//		float yButton = tB.getY();
+//		tB.localToStageCoordinates(v2);
+		float xButton = tB.getX();
+		float yButton = tB.getY();
 		float wButton = tB.getWidth();
 		float hButton = tB.getHeight();
 		
 		float xTouch = Gdx.input.getX();
 		float yTouch = Gdx.graphics.getHeight() - Gdx.input.getY();
+		
 		
 		if (((xTouch > v2.x)&(xTouch < v2.x + wButton))
 				&(yTouch > v2.y)&(yTouch < v2.y + hButton))
