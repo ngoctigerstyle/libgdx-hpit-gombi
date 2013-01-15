@@ -118,7 +118,7 @@ public class LeftTaskBar extends Group {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (MyInput.wrapButton(tbBack)){
+				if (tbBack.isOver()){	
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_MENU);
 				}
