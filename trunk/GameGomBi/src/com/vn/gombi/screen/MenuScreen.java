@@ -3,6 +3,7 @@ package com.vn.gombi.screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -52,7 +53,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (tbTouch.isOver()){
+				if (MyInput.wrapButton(tbTouch)){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Constant.GAME_STYLE = Constant.TOUCH;
 					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
@@ -73,7 +74,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (tbAccelerometer.isOver()){
+				if (MyInput.wrapButton(tbAccelerometer)){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Constant.GAME_STYLE = Constant.ACCELEROMETER;
 					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
@@ -103,7 +104,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if(tnewGame.isOver()){
+				if(MyInput.wrapButton(tnewGame)){
 					tnewGame.setVisible(false);
 					tbTouch.setVisible(true);
 					tbAccelerometer.setVisible(true);
@@ -117,7 +118,7 @@ public class MenuScreen extends BaseScreen {
 			public void touchUp(InputEvent arg0, float arg1, float arg2,
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
-				if (tquitGame.isOver()){
+				if (MyInput.wrapButton(tquitGame)){
 					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					Gdx.app.exit();
 				}
@@ -129,8 +130,11 @@ public class MenuScreen extends BaseScreen {
 	public void render(float arg0) {
 		super.render(arg0);
 		// imgBack.setX(imgBack.getX()+5);
-		if (tnewGame.isOver())
-			Gdx.app.log("sdf", "sdfs");
+//		if (tnewGame.isOver())
+//			Gdx.app.log("sdf", "sdfs");
+//		Actor a = stage.hit(Gdx.input.getX(), Gdx.input.getY(), false);
+//		if (a != null)
+//			Gdx.app.log("sdf", a.toString());
 	}
 
 	@Override

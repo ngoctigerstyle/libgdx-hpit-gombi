@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.vn.gombi.constant.Constant;
 
 public class MyInput {
 	private static boolean daNhan = false;
@@ -24,18 +25,22 @@ public class MyInput {
 	
 	public static boolean wrapButton(TextButton tB){
 		Vector2 v2 = new Vector2();
-//		tB.localToStageCoordinates(v2);
-		float xButton = tB.getX();
-		float yButton = tB.getY();
-		float wButton = tB.getWidth();
-		float hButton = tB.getHeight();
+		tB.localToStageCoordinates(v2);
+		
+		float scaleX = Gdx.graphics.getWidth() / Constant.STAGE_WIDTH;
+		float scaleY = Gdx.graphics.getHeight() / Constant.STAGE_HEIGHT;
+		
+		float xButton = v2.x * scaleX;
+		float yButton = v2.y * scaleY;
+		float wButton = tB.getWidth() * scaleX;
+		float hButton = tB.getHeight() * scaleY;
 		
 		float xTouch = Gdx.input.getX();
 		float yTouch = Gdx.graphics.getHeight() - Gdx.input.getY();
 		
 		
-		if (((xTouch > v2.x)&(xTouch < v2.x + wButton))
-				&(yTouch > v2.y)&(yTouch < v2.y + hButton))
+		if (((xTouch > xButton) & (xTouch < xButton + wButton))
+				&(yTouch > yButton) & (yTouch < yButton + hButton))
 			return true;
 		else
 			return false;

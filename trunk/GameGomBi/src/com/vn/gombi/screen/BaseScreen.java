@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.vn.gombi.constant.Constant;
 
 public class BaseScreen implements Screen{
 	public OrthographicCamera camera;
@@ -16,7 +17,7 @@ public class BaseScreen implements Screen{
 	@Override
 	public void show() {
 		sb = new SpriteBatch();
-		stage = new Stage(800, 480, false);
+		stage = new Stage(Constant.STAGE_WIDTH, Constant.STAGE_HEIGHT, false);
 		Gdx.input.setInputProcessor(stage);
 		camera = (OrthographicCamera) stage.getCamera();
 	}
