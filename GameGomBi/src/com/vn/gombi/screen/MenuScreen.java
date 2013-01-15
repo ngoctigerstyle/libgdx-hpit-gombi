@@ -105,6 +105,7 @@ public class MenuScreen extends BaseScreen {
 					int arg3, int arg4) {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
 				if(MyInput.wrapButton(tnewGame)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
 					tnewGame.setVisible(false);
 					tbTouch.setVisible(true);
 					tbAccelerometer.setVisible(true);
