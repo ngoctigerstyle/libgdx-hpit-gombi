@@ -29,4 +29,8 @@ public class Constant {
 			PATH_SKINPACKER = PATH_SKINPACKER_ANDROID;
 		}
 	}
+	
+	public static final int TOUCH = 0;
+	public static final int ACCELEROMETER = 1;
+	public static int GAME_STYLE = Constant.TOUCH;
 }
