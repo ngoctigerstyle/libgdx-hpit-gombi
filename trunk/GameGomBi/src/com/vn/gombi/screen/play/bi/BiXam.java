@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.vn.gombi.constant.Constant;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.helper.SoundManager;
 import com.vn.gombi.screen.PlayScreen;
@@ -33,14 +34,15 @@ public class BiXam extends BiBase {
 		this.setY(Y_DEFAULT);
 		setXY_Max();
 		viTriCuoi = new Vector2(this.getX(), this.getY());
-		dieuKhien();
+		if (Constant.GAME_STYLE == Constant.TOUCH)
+			dieuKhienTouch();
 		iTocDo = 4;
 		bSuper = false;
 		xHand = 120;
 		yHand = 60;
 	}
 
-	public void dieuKhien() {
+	public void dieuKhienTouch() {
 		ClickListener click = new ClickListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y,
@@ -58,6 +60,28 @@ public class BiXam extends BiBase {
 		};
 		groupBi.addListener(click);
 	}
+	
+	public void dieuKhienAccelerometer(){
+		Gdx.app.log(String.valueOf(Gdx.input.getAccelerometerX()), 
+				String.valueOf(Gdx.input.getAccelerometerY()));
+		float xTemp = this.getX() + Gdx.input.getAccelerometerY();
+		if (xTemp < 0)
+			xTemp = 0;
+		if (xTemp > x_max)
+			xTemp = x_max;
+		
+		if (Math.abs(Gdx.input.getAccelerometerY()) > 1)
+			this.setX(xTemp);
+		
+		float yTemp = this.getY() - Gdx.input.getAccelerometerX();
+		if (yTemp < 0)
+			yTemp = 0;
+		if (yTemp > y_max)
+			yTemp = y_max;
+		
+		if (Math.abs(Gdx.input.getAccelerometerX()) > 1)
+			this.setY(yTemp);
+	}
 
 	private void setViTriCuoi(float x, float y) {
 		float xTemp = x;
@@ -73,7 +97,7 @@ public class BiXam extends BiBase {
 		viTriCuoi.set(xTemp, yTemp);
 	}
 
-	private void diChuyen() {
+	private void diChuyenTouch() {
 		if (viTriCuoi.x > this.getX() + iTocDo)
 			this.incX(iTocDo);
 		if (viTriCuoi.x < this.getX() - iTocDo)
@@ -171,7 +195,10 @@ public class BiXam extends BiBase {
 	public void act(float arg0) {
 		super.act(arg0);
 		if (PlayScreen.PAUSE_GAME == false) {
-			diChuyen();
+			if (Constant.GAME_STYLE == Constant.TOUCH)
+				diChuyenTouch();
+			if (Constant.GAME_STYLE == Constant.ACCELEROMETER)
+				dieuKhienAccelerometer();
 			checkCollision(groupBi.getGroupBiMau());
 		}
 	}
