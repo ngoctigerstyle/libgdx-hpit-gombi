@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.vn.gombi.constant.Constant;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.helper.SoundManager;
@@ -14,6 +15,7 @@ import com.vn.gombi.helper.SoundManager;
 public class MenuScreen extends BaseScreen {
 
 	private Image imgBack;
+	private TextButton tnewGame, tquitGame, tbTouch, tbAccelerometer;
 
 	@Override
 	public void show() {
@@ -29,14 +31,66 @@ public class MenuScreen extends BaseScreen {
 		menuBall.setY(270);
 		stage.addActor(menuBall);
 
-		final TextButton tnewGame = new TextButton("New game", GameControl.getMySkin());
+		initTextButton();
+		initTextButtonInvi();
+		
+//		GameControl.getSoundManager().playSound(SoundManager.SOUND_1);
+		SoundManager.playMusic(SoundManager.MUSIC_MENU);
+	}
+	
+	private void initTextButtonInvi() {
+		tbTouch = new TextButton("Touch", GameControl.getMySkin());
+		tbTouch.setX(tnewGame.getX() - tnewGame.getWidth()/2 - 5);
+		tbTouch.setY(tnewGame.getY());
+		tbTouch.setWidth(tnewGame.getWidth());
+		tbTouch.setHeight(tnewGame.getHeight());
+		tbTouch.setVisible(false);
+		stage.addActor(tbTouch);
+		tbTouch.addListener(new ClickListener(){
+
+			@Override
+			public void touchUp(InputEvent arg0, float arg1, float arg2,
+					int arg3, int arg4) {
+				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				if (MyInput.wrapButton(tbTouch)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
+					Constant.GAME_STYLE = Constant.TOUCH;
+					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
+				}
+			}
+		});
+		
+		tbAccelerometer = new TextButton("Accelerometer", GameControl.getMySkin());
+		tbAccelerometer.setX(tnewGame.getX() + tnewGame.getWidth() / 2 + 5);
+		tbAccelerometer.setY(tnewGame.getY());
+		tbAccelerometer.setWidth(tnewGame.getWidth());
+		tbAccelerometer.setHeight(tnewGame.getHeight());
+		tbAccelerometer.setVisible(false);
+		stage.addActor(tbAccelerometer);
+		tbAccelerometer.addListener(new ClickListener(){
+
+			@Override
+			public void touchUp(InputEvent arg0, float arg1, float arg2,
+					int arg3, int arg4) {
+				super.touchUp(arg0, arg1, arg2, arg3, arg4);
+				if (MyInput.wrapButton(tbAccelerometer)){
+					SoundManager.playSound(SoundManager.SOUND_SELECT);
+					Constant.GAME_STYLE = Constant.ACCELEROMETER;
+					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
+				}
+			}
+		});
+	}
+
+	private void initTextButton(){
+		tnewGame = new TextButton("New game", GameControl.getMySkin());
 		tnewGame.setX(280);
 		tnewGame.setY(180);
 		tnewGame.setWidth(200);
 		tnewGame.setHeight(70);
 		stage.addActor(tnewGame);
 
-		final TextButton tquitGame = new TextButton("Quit game", GameControl.getMySkin());
+		tquitGame = new TextButton("Quit game", GameControl.getMySkin());
 		tquitGame.setX(280);
 		tquitGame.setY(100);
 		tquitGame.setWidth(200);
@@ -51,8 +105,9 @@ public class MenuScreen extends BaseScreen {
 				super.touchUp(arg0, arg1, arg2, arg3, arg4);
 				
 				if (MyInput.wrapButton(tnewGame)){
-					SoundManager.playSound(SoundManager.SOUND_SELECT);
-					GameControl.getManagerScreen().createScreen(ManagerScreen.SCREEN_PLAY);
+					tnewGame.setVisible(false);
+					tbTouch.setVisible(true);
+					tbAccelerometer.setVisible(true);
 				}
 			}
 		});
@@ -69,9 +124,6 @@ public class MenuScreen extends BaseScreen {
 				}
 			}
 		});
-		
-//		GameControl.getSoundManager().playSound(SoundManager.SOUND_1);
-		SoundManager.playMusic(SoundManager.MUSIC_MENU);
 	}
 
 	@Override
