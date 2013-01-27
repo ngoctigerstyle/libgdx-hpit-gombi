@@ -91,7 +91,7 @@ public class GroupBi extends Group {
 	public void desSpeedRed(){
 		for (Actor a : gBiMau.getChildren())
 			if (a instanceof BiDo){
-				Gdx.app.log("bi do", "giam toc");
+//				Gdx.app.log("bi do", "giam toc");
 				((BiDo) a).desSpeed();
 			}
 	}

@@ -8,6 +8,11 @@ import com.badlogic.gdx.audio.Sound;
 
 public class SoundManager {
 
+	private static float volumeSound = 1;
+	
+	public static boolean PLAY_MUSIC = true;
+	public static boolean PLAY_SOUND = true;
+	
 	private Sound soundSelect, soundEat, soundBoom;
 	private static ArrayList<Sound> arraySound;
 	
@@ -45,7 +50,7 @@ public class SoundManager {
 	}
 	
 	public static void playSound(int iSound){
-		arraySound.get(iSound).play(1.0f);
+		arraySound.get(iSound).play(volumeSound);
 	}
 	
 	public static void playMusic(int iMusic){
@@ -55,5 +60,14 @@ public class SoundManager {
 		}
 		arrayMusic.get(iMusic).setLooping(true);
 		arrayMusic.get(iMusic).play();
+	}
+	
+	public static void setVolumeMusic(float v){
+		for (int i = 0; i < arrayMusic.size() ; i++)
+			arrayMusic.get(i).setVolume(v);
+	}
+	
+	public static void setVolumeSound(float volume){
+		volumeSound = volume;
 	}
 }
