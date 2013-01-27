@@ -6,17 +6,20 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.vn.gombi.constant.Constant;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.helper.SoundManager;
+import com.vn.gombi.helper.SoundMusic;
 
 public class MenuScreen extends BaseScreen {
 
 	private Image imgBack;
 	private TextButton tnewGame, tquitGame, tbTouch, tbAccelerometer;
+	private SoundMusic soundMusic;
 
 	@Override
 	public void show() {
@@ -37,6 +40,11 @@ public class MenuScreen extends BaseScreen {
 		
 //		GameControl.getSoundManager().playSound(SoundManager.SOUND_1);
 		SoundManager.playMusic(SoundManager.MUSIC_MENU);
+		
+		soundMusic = new SoundMusic();
+		soundMusic.setX(650);
+		soundMusic.setY(400);
+		stage.addActor(soundMusic);
 	}
 	
 	private void initTextButtonInvi() {

@@ -3,8 +3,10 @@ package com.vn.gombi.helper;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.sun.org.apache.bcel.internal.generic.ACONST_NULL;
 import com.vn.gombi.constant.Constant;
 
 public class MyInput {
@@ -23,7 +25,7 @@ public class MyInput {
 		return false;
 	}
 	
-	public static boolean wrapButton(TextButton tB){
+	public static boolean wrapButton(Actor tB){
 		Vector2 v2 = new Vector2();
 		tB.localToStageCoordinates(v2);
 		

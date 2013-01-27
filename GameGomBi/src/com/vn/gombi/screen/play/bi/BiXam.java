@@ -62,8 +62,8 @@ public class BiXam extends BiBase {
 	}
 	
 	public void dieuKhienAccelerometer(){
-		Gdx.app.log(String.valueOf(Gdx.input.getAccelerometerX()), 
-				String.valueOf(Gdx.input.getAccelerometerY()));
+//		Gdx.app.log(String.valueOf(Gdx.input.getAccelerometerX()), 
+//				String.valueOf(Gdx.input.getAccelerometerY()));
 		float xTemp = this.getX() + Gdx.input.getAccelerometerY();
 		if (xTemp < 0)
 			xTemp = 0;

@@ -7,9 +7,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.vn.gombi.gamelogic.GameControl;
 import com.vn.gombi.helper.MyInput;
 import com.vn.gombi.helper.SoundManager;
+import com.vn.gombi.helper.SoundMusic;
 import com.vn.gombi.screen.ManagerScreen;
 
 public class LeftTaskBar extends Group {
@@ -23,12 +25,20 @@ public class LeftTaskBar extends Group {
 	private Label lCollect;
 	private Label lPower;
 	private Label lPower2;
+	
+	private SoundMusic soundMusic;
+	
 
 	public LeftTaskBar() {
 		super();
 		khoiTaoNumber();
 		initLabel();
 		initTextButton();
+		soundMusic = new SoundMusic();
+		soundMusic.setVertical();
+		soundMusic.setX(20);
+		soundMusic.setY(70);
+		this.addActor(soundMusic);
 	}
 
 	private void khoiTaoNumber() {
